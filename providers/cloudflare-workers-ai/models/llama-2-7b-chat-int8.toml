@@ -11,6 +11,7 @@ last_updated = "2023-09-25"
 
 [limit]
 context = 8192
+output = 8192
 
 [modalities]
 input = ["text"]

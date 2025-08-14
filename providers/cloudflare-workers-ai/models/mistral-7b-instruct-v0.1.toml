@@ -15,6 +15,7 @@ output = 0.19
 
 [limit]
 context = 2824
+output = 2824
 
 [modalities]
 input = ["text"]

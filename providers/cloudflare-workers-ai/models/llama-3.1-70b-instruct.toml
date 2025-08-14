@@ -11,6 +11,7 @@ last_updated = "2024-12-15"
 
 [limit]
 context = 24000
+output = 24000
 
 [modalities]
 input = ["text"]
