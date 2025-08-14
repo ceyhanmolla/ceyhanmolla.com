@@ -11,7 +11,8 @@ last_updated = "2024-02-13"
 
 [cost]
 # per inference request
-input = "0.0000025"
+input = 0.0000025
+output = 0
 
 [limit]
 context = 0

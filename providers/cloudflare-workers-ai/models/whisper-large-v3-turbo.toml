@@ -12,6 +12,7 @@ last_updated = "2024-10-04"
 [cost]
 # per audio minute
 input = 0.00051
+output = 0.00051
 
 [limit]
 context = 0
