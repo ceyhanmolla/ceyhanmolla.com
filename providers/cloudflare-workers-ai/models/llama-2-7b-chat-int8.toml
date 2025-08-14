@@ -7,7 +7,7 @@ tool_call = true
 temperature = true
 open_weights = true
 release_date = "2023-09-25"
-last_updated = "todo"
+last_updated = "2023-09-25"
 
 [limit]
 context = 8192

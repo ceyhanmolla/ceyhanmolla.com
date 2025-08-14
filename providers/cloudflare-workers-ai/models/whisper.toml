@@ -6,8 +6,8 @@ reasoning = false
 tool_call = false
 temperature = false
 open_weights = true
-release_date = "2023-09-25"
-last_updated = "todo"
+release_date = "2023-11-07"
+last_updated = "2024-08-12"
 
 [cost]
 # per audio minute

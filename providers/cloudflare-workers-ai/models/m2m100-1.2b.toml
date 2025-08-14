@@ -6,8 +6,8 @@ reasoning = false
 tool_call = false
 temperature = false
 open_weights = true
-release_date = "2023-09-25"
-last_updated = "todo"
+release_date = "2022-03-02"
+last_updated = "2023-11-16"
 
 [cost]
 input = 0.34

@@ -7,7 +7,7 @@ tool_call = true
 temperature = true
 open_weights = true
 release_date = "2025-03-05"
-last_updated = "todo"
+last_updated = "2025-03-11"
 
 [cost]
 input = 0.66
