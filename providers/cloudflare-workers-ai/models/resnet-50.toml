@@ -15,6 +15,7 @@ input = "0.0000025"
 
 [limit]
 context = 0
+output = 0
 
 [modalities]
 input = ["image"]

@@ -13,6 +13,10 @@ last_updated = "2023-12-07"
 input = 0
 output = 0
 
+[limit]
+context = 0
+output = 0
+
 [modalities]
 input = ["text"]
 output = ["image"]
