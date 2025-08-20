@@ -1,4 +1,3 @@
 name = "opencode"
-env = []
 npm = "@ai-sdk/openai-compatible"
 api = "https://gateway.opencode.ai/v1"
