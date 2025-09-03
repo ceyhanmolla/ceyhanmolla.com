@@ -1,4 +1,4 @@
-name = "opencode zen"
+name = "opencode"
 env = ["OPENCODE_API_KEY"]
 npm = "@ai-sdk/openai-compatible"
 api = "https://opencode.ai/gateway/v1"
