@@ -84,7 +84,7 @@ Example SVG structure:
 
 Create a new TOML file in the provider's `models/` directory where the filename is the model ID.
 
-**Optional:** For better organization, you can create subfolders based on the first part of the model ID (before the `/`). For example, for a model with ID `openai/gpt-4`, create a subfolder `openai/` and place the `gpt-4.toml` file inside it.
+If the model ID contains `/`, use subfolders. For example, for the model ID `openai/gpt-5`, create a folder `openai/` and place a file named `gpt-5.toml` inside it.
 
 ```toml
 name = "Model Display Name"
