@@ -45,6 +45,10 @@ export const Model = z
           .number()
           .min(0, "Audio input price cannot be negative")
           .optional(),
+        output_audio: z
+          .number()
+          .min(0, "Audio output price cannot be negative")
+          .optional(),
       })
       .optional(),
     limit: z.object({
