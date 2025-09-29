@@ -12,6 +12,7 @@ open_weights = false
 input = 0.10
 output = 0.40
 cache_read = 0.025
+input_audio = 0.30
 
 [limit]
 context = 1_048_576
