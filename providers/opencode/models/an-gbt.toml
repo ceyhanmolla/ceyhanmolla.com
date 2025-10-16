@@ -1,4 +1,4 @@
-name = "Code G8X (alpha)"
+name = "Code GBT (beta)"
 release_date = "2025-01-01"
 last_updated = "2025-01-01"
 attachment = false
@@ -10,8 +10,8 @@ open_weights = true
 status = "alpha"
 
 [cost]
-input = 0.5
-output = 2.0
+input = 1.0
+output = 3.0
 
 [limit]
 context = 200000
