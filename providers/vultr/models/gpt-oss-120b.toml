@@ -3,6 +3,7 @@ attachment = false
 reasoning = false
 tool_call = true
 temperature = true
+open_weights = true
 knowledge = "2024-10"
 release_date = "2025-06-23"
 last_updated = "2025-06-23"
