@@ -10,13 +10,16 @@ open_weights = true
 status = "alpha"
 
 [cost]
-input = 1.2
+input = 0.3
 output = 1.2
 
 [limit]
-context = 200_000
-output = 128_000
+context = 204800
+output = 131072
 
 [modalities]
 input = ["text"]
 output = ["text"]
+
+[provider]
+npm = "@ai-sdk/anthropic"
