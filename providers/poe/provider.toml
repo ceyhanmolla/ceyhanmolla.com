@@ -1,0 +1,3 @@
+name = "Poe"
+npm = "@ai-sdk/openai-compatible"
+api = "https://api.poe.com/v1"
