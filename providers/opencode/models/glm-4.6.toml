@@ -7,13 +7,11 @@ temperature = true
 tool_call = true
 knowledge = "2025-04"
 open_weights = true
-experimental = true
 
 [cost]
 input = 0.6
 output = 2.2
-cache_read = 0.11
-cache_write = 0
+cache_read = 0.1
 
 [limit]
 context = 204800
