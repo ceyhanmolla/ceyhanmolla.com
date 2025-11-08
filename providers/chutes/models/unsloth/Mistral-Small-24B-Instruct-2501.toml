@@ -1,5 +1,5 @@
-name = "Mistral Small 3.2 24B Instruct (2506)"
-release_date = "2025-06-20"
+name = "Mistral Small 24B Instruct 2501"
+release_date = "2025-11-08"
 last_updated = "2025-11-08"
 attachment = false
 reasoning = false
@@ -9,12 +9,12 @@ tool_call = true
 open_weights = true
 
 [cost]
-input = 0.06
-output = 0.18
+input = 0.05
+output = 0.22
 
 [limit]
-context = 131_072
-output = 131_072
+context = 32_768
+output = 32_768
 
 [modalities]
 input = ["text", "image"]
