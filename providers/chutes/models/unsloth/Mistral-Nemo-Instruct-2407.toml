@@ -1,16 +1,16 @@
-name = "DeepSeek R1 Distill Llama 70B"
-release_date = "2025-01-23"
+name = "Mistral Nemo Instruct 2407"
+release_date = "2025-11-08"
 last_updated = "2025-11-08"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
-knowledge = "2024-10"
-tool_call = true
+
+tool_call = false
 open_weights = true
 
 [cost]
 input = 0.03
-output = 0.13
+output = 0.11
 
 [limit]
 context = 131_072

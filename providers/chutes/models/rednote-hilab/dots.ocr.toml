@@ -1,21 +1,21 @@
-name = "DeepSeek R1 Distill Llama 70B"
-release_date = "2025-01-23"
+name = "Dots.Ocr"
+release_date = "2025-11-08"
 last_updated = "2025-11-08"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
-knowledge = "2024-10"
-tool_call = true
+
+tool_call = false
 open_weights = true
 
 [cost]
-input = 0.03
-output = 0.13
+input = 0.01
+output = 0.01
 
 [limit]
 context = 131_072
 output = 131_072
 
 [modalities]
-input = ["text"]
+input = ["text", "image"]
 output = ["text"]

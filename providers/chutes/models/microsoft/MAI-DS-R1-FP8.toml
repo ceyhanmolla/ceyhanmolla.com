@@ -1,16 +1,16 @@
-name = "DeepSeek R1 (0528)"
-release_date = "2025-08-01"
+name = "MAI DS R1 FP8"
+release_date = "2025-11-08"
 last_updated = "2025-11-08"
 attachment = false
 reasoning = true
 temperature = true
 
-tool_call = true
-open_weights = false
+tool_call = false
+open_weights = true
 
 [cost]
-input = 0.40
-output = 1.75
+input = 0.30
+output = 1.20
 
 [limit]
 context = 163_840
