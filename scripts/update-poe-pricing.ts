@@ -18,6 +18,16 @@ interface PoeModel {
   id: string;
   owned_by: string;
   pricing: Pricing | null;
+  created?: number;
+  supports_reasoning?: boolean | null;
+  supports_tool_calls?: boolean | null;
+  context_size?: number | null;
+  context_length?: number | null;
+  max_output_tokens?: number | null;
+  architecture?: {
+    input_modalities?: string[] | null;
+    output_modalities?: string[] | null;
+  } | null;
 }
 
 type TomlData = Record<string, unknown>;
@@ -139,6 +149,57 @@ function updateCostSection(content: string, pricing: Pricing | null): string {
   return newLines.join("\n");
 }
 
+function updateLimitSection(content: string, contextValue: string | null, outputValue: string | null): string {
+  const lines = content.split(/\r?\n/);
+  const newLines: string[] = [];
+  let i = 0;
+  let replaced = false;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (line.trim().startsWith("[limit]")) {
+      replaced = true;
+      const limitLines: string[] = [];
+      let j = i + 1;
+      while (j < lines.length && !lines[j].startsWith("[")) {
+        limitLines.push(lines[j]);
+        j += 1;
+      }
+
+      const existingContext = limitLines.find((l) => l.trim().startsWith("context =")) ?? "context = 0";
+      const existingOutput = limitLines.find((l) => l.trim().startsWith("output =")) ?? "output = 0";
+
+      const contextLine = contextValue !== null ? `context = ${contextValue}` : existingContext;
+      const outputLine = outputValue !== null ? `output = ${outputValue}` : existingOutput;
+
+      newLines.push("[limit]");
+      newLines.push(contextLine);
+      newLines.push(outputLine);
+      newLines.push("");
+
+      i = j;
+      continue;
+    }
+
+    newLines.push(line);
+    i += 1;
+  }
+
+  if (!replaced) {
+    const contextLine = contextValue !== null ? `context = ${contextValue}` : "context = 0";
+    const outputLine = outputValue !== null ? `output = ${outputValue}` : "output = 0";
+    if (newLines.length > 0 && newLines[newLines.length - 1] !== "") {
+      newLines.push("");
+    }
+    newLines.push("[limit]");
+    newLines.push(contextLine);
+    newLines.push(outputLine);
+    newLines.push("");
+  }
+
+  return newLines.join("\n");
+}
+
 async function fetchPoeModels(): Promise<PoeModel[]> {
   const headers: Record<string, string> = {};
   const apiKey = process.env.POE_API_KEY;
@@ -214,12 +275,12 @@ function formatCost(raw: string | null | undefined): string | null {
   return text === "" ? "0" : text;
 }
 
-function formatLimit(value: number | null | undefined): string {
-  if (value === null || value === undefined) return "0";
+function formatLimit(value: number | null | undefined): string | null {
+  if (value === null || value === undefined) return null;
   try {
     return value.toLocaleString("en-US").replace(/,/g, "_");
   } catch {
-    return "0";
+    return null;
   }
 }
 
@@ -228,10 +289,49 @@ function formatModalities(mods: string[] | null | undefined): string {
   return `[${mods.map((m) => `"${m}"`).join(", ")}]`;
 }
 
-function buildTomlContent(model: PoeModel & { created?: number; supports_tool_calls?: boolean | null; supports_reasoning?: boolean | null; context_size?: number | null; max_output_tokens?: number | null; architecture?: { input_modalities?: string[] | null; output_modalities?: string[] | null } | null; description?: string | null; }): string {
+function updateModalitiesSection(content: string, inputValue: string, outputValue: string): string {
+  const lines = content.split(/\r?\n/);
+  const newLines: string[] = [];
+  let i = 0;
+  let replaced = false;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (line.trim().startsWith("[modalities]")) {
+      replaced = true;
+      newLines.push("[modalities]");
+      newLines.push(`input = ${inputValue}`);
+      newLines.push(`output = ${outputValue}`);
+      newLines.push("");
+
+      i += 1;
+      while (i < lines.length && !lines[i].startsWith("[")) {
+        i += 1;
+      }
+      continue;
+    }
+
+    newLines.push(line);
+    i += 1;
+  }
+
+  if (!replaced) {
+    if (newLines.length > 0 && newLines[newLines.length - 1] !== "") {
+      newLines.push("");
+    }
+    newLines.push("[modalities]");
+    newLines.push(`input = ${inputValue}`);
+    newLines.push(`output = ${outputValue}`);
+    newLines.push("");
+  }
+
+  return newLines.join("\n");
+}
+
+function buildTomlContent(model: PoeModel): string {
   const releaseDate = formatDate(model.created ?? null);
-  const reasoning = formatBool((model as any).supports_reasoning ?? null);
-  const toolCall = formatBool((model as any).supports_tool_calls ?? null);
+  const reasoning = formatBool(model.supports_reasoning ?? null);
+  const toolCall = formatBool(model.supports_tool_calls ?? null);
   const pricing = model.pricing ?? {};
 
   const costEntries: string[] = [];
@@ -251,10 +351,10 @@ function buildTomlContent(model: PoeModel & { created?: number; supports_tool_ca
     costEntries.push("");
   }
 
-  const limitContext = formatLimit((model as any).context_size ?? null);
-  const limitOutput = formatLimit((model as any).max_output_tokens ?? null);
+  const limitContext = formatLimit(model.context_length ?? model.context_size ?? null);
+  const limitOutput = formatLimit(model.max_output_tokens ?? null);
 
-  const architecture = (model as any).architecture ?? {};
+  const architecture = model.architecture ?? {};
   const inputMods = formatModalities(architecture.input_modalities ?? null);
   const outputMods = formatModalities(architecture.output_modalities ?? null);
 
@@ -314,10 +414,17 @@ async function updatePricing() {
       continue;
     }
     const fileContent = await readFile(filePath, "utf8");
-    const updatedContent = updateCostSection(fileContent, model.pricing);
+    let updatedContent = updateCostSection(fileContent, model.pricing);
+    const limitContext = formatLimit(model.context_length ?? model.context_size ?? null);
+    const limitOutput = formatLimit(model.max_output_tokens ?? null);
+    updatedContent = updateLimitSection(updatedContent, limitContext, limitOutput);
+    const arch = model.architecture ?? {};
+    const inputMods = formatModalities(arch.input_modalities ?? null);
+    const outputMods = formatModalities(arch.output_modalities ?? null);
+    updatedContent = updateModalitiesSection(updatedContent, inputMods, outputMods);
     if (updatedContent !== fileContent) {
       await writeFile(filePath, updatedContent, "utf8");
-      console.log(`Updated pricing for ${filePath}`);
+      console.log(`Updated ${filePath}`);
     }
     apiMap.delete(fileId.toLowerCase());
   }

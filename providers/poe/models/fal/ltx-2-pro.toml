@@ -1,6 +1,6 @@
-name = "Qwen3-235B-2507-CS"
-release_date = "2025-08-06"
-last_updated = "2025-08-06"
+name = "LTX-2-Pro"
+release_date = "2025-10-24"
+last_updated = "2025-10-24"
 attachment = true
 reasoning = false
 temperature = false
@@ -12,5 +12,5 @@ context = 0
 output = 0
 
 [modalities]
-input = ["text"]
-output = ["text"]
+input = ["text", "image"]
+output = ["video"]

@@ -14,7 +14,7 @@ cache_read = 0.068
 cache_write = 0.85
 
 [limit]
-context = 191_808
+context = 189_096
 output = 8_192
 
 [modalities]

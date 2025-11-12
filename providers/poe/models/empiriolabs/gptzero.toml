@@ -1,6 +1,6 @@
-name = "Qwen3-235B-2507-CS"
-release_date = "2025-08-06"
-last_updated = "2025-08-06"
+name = "GPTZero"
+release_date = "2025-10-31"
+last_updated = "2025-10-31"
 attachment = true
 reasoning = false
 temperature = false
