@@ -97,12 +97,14 @@ export const Provider = z
     (data) => {
       return (
         (data.npm === "@ai-sdk/openai-compatible" && data.api !== undefined) ||
-        (data.npm !== "@ai-sdk/openai-compatible" && data.api === undefined)
+        (data.npm !== "@ai-sdk/openai-compatible" && data.api === undefined) ||
+        (data.npm === "@ai-sdk/anthropic" && data.api !== undefined) ||
+        (data.npm === "@ai-sdk/anthropic" && data.api === undefined)
       );
     },
     {
       message:
-        "'api' field is required if and only if npm is '@ai-sdk/openai-compatible'",
+        "'api' field is required if and only if npm is '@ai-sdk/openai-compatible' or '@ai-sdk/anthropic'",
       path: ["api"],
     }
   );
