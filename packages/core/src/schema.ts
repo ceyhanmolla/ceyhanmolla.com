@@ -94,23 +94,28 @@ export const Provider = z
     models: z.record(Model),
   })
   .strict()
-
   .refine(
-  data => {
-    const isOpenAIcompatible = data.npm === "@ai-sdk/openai-compatible";
-    const isAnthropic = data.npm === "@ai-sdk/anthropic";
-    const hasApi = data.api !== undefined;
+    (data) => {
+      const isOpenAIcompatible = data.npm === "@ai-sdk/openai-compatible";
+      const isAnthropic = data.npm === "@ai-sdk/anthropic";
+      const hasApi = data.api !== undefined;
 
-    return (
-      (isOpenAIcompatible && hasApi)         // must have api
-      (isAnthropic)                // allowed
-      (!isOpenAIcompatible && !isAnthropic && !hasApi) // forbidden
-    );
-  },
-  {
-    message:
-      "'api' is required for openai-compatible, optional for anthropic, forbidden otherwise",
-    path: ["api"],
-  }
-);
+      return (
+        // openai-compatible: must have api
+        (isOpenAIcompatible && hasApi) ||
+
+        // anthropic: api optional (always allowed)
+        isAnthropic ||
+
+        // all others: must NOT have api
+        (!isOpenAIcompatible && !isAnthropic && !hasApi)
+      );
+    },
+    {
+      message:
+        "'api' is required for openai-compatible, optional for anthropic, forbidden otherwise",
+      path: ["api"],
+    }
+  );
+
 export type Provider = z.infer<typeof Provider>;
