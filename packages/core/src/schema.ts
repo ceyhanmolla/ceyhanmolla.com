@@ -1,5 +1,26 @@
 import { z } from "zod";
 
+const Cost = z.object({
+  input: z.number().min(0, "Input price cannot be negative"),
+  output: z.number().min(0, "Output price cannot be negative"),
+  reasoning: z.number().min(0, "Input price cannot be negative").optional(),
+  cache_read: z
+    .number()
+    .min(0, "Cache read price cannot be negative")
+    .optional(),
+  cache_write: z
+    .number()
+    .min(0, "Cache write price cannot be negative")
+    .optional(),
+  input_audio: z
+    .number()
+    .min(0, "Audio input price cannot be negative")
+    .optional(),
+  output_audio: z
+    .number()
+    .min(0, "Audio output price cannot be negative")
+    .optional(),
+});
 export const Model = z
   .object({
     id: z.string(),
@@ -26,32 +47,9 @@ export const Model = z
       output: z.array(z.enum(["text", "audio", "image", "video", "pdf"])),
     }),
     open_weights: z.boolean(),
-    cost: z
-      .object({
-        input: z.number().min(0, "Input price cannot be negative"),
-        output: z.number().min(0, "Output price cannot be negative"),
-        reasoning: z
-          .number()
-          .min(0, "Input price cannot be negative")
-          .optional(),
-        cache_read: z
-          .number()
-          .min(0, "Cache read price cannot be negative")
-          .optional(),
-        cache_write: z
-          .number()
-          .min(0, "Cache write price cannot be negative")
-          .optional(),
-        input_audio: z
-          .number()
-          .min(0, "Audio input price cannot be negative")
-          .optional(),
-        output_audio: z
-          .number()
-          .min(0, "Audio output price cannot be negative")
-          .optional(),
-      })
-      .optional(),
+    cost: Cost.extend({
+      context_over_200k: Cost.optional(),
+    }).optional(),
     limit: z.object({
       context: z.number().min(0, "Context window must be positive"),
       output: z.number().min(0, "Output tokens must be positive"),
@@ -95,15 +93,24 @@ export const Provider = z
   .strict()
   .refine(
     (data) => {
+      const isOpenAIcompatible = data.npm === "@ai-sdk/openai-compatible";
+      const isAnthropic = data.npm === "@ai-sdk/anthropic";
+      const hasApi = data.api !== undefined;
+
       return (
-        (data.npm === "@ai-sdk/openai-compatible" && data.api !== undefined) ||
-        (data.npm !== "@ai-sdk/openai-compatible" && data.api === undefined)
+        // openai-compatible: must have api
+        (isOpenAIcompatible && hasApi) ||
+        // anthropic: api optional (always allowed)
+        isAnthropic ||
+        // all others: must NOT have api
+        (!isOpenAIcompatible && !isAnthropic && !hasApi)
       );
     },
     {
       message:
-        "'api' field is required if and only if npm is '@ai-sdk/openai-compatible'",
+        "'api' is required for openai-compatible, optional for anthropic, forbidden otherwise",
       path: ["api"],
     }
   );
+
 export type Provider = z.infer<typeof Provider>;
