@@ -24,4 +24,4 @@ input = ["text", "image"]
 output = ["text"]
 
 [provider]
-npm = "@anthropic-ai/foundry-sdk"
+npm = "@ai-sdk/anthropic"
