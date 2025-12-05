@@ -1,6 +1,6 @@
 name = "anthropic--claude-4-opus"
-release_date = "2025-05-14"
-last_updated = "2025-05-14"
+release_date = "2025-05-22"
+last_updated = "2025-05-22"
 attachment = true
 reasoning = true
 temperature = true
