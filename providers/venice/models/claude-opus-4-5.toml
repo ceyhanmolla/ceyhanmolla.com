@@ -7,7 +7,7 @@ knowledge = ""
 release_date = "2025-12-05"
 last_updated = "2025-12-05"
 open_weights = false
-beta = true
+status = "beta"
 
 [cost]
 input = 6.0
