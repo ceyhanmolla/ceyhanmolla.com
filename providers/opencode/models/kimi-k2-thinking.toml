@@ -5,9 +5,11 @@ attachment = false
 reasoning = true
 temperature = true
 tool_call = true
-interleaved = { name = "reasoning_details" }
 knowledge = "2024-10"
 open_weights = true
+
+[interleaved]
+name = "reasoning_details"
 
 [cost]
 input = 0.4
