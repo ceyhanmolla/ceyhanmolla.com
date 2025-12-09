@@ -1,6 +1,6 @@
-name = "Claude Sonnet 3.7"
-release_date = "2025-02-19"
-last_updated = "2025-02-19"
+name = "claude-opus-4.5"
+release_date = "2025-11-21"
+last_updated = "2025-11-21"
 attachment = true
 reasoning = true
 temperature = false
@@ -8,14 +8,14 @@ open_weights = false
 tool_call = true
 
 [cost]
-input = 2.6
-output = 13
-cache_read = 0.26
-cache_write = 3.2
+input = 4.3
+output = 21
+cache_read = 0.43
+cache_write = 5.3
 
 [limit]
 context = 196_608
-output = 32_768
+output = 64_000
 
 [modalities]
 input = ["text", "image", "pdf"]
