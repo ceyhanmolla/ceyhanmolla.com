@@ -1,18 +1,14 @@
-name = "Llama-3.1-405B"
-release_date = "2024-08-08"
-last_updated = "2024-08-08"
+name = "linkup-deep-search"
+release_date = "2025-08-17"
+last_updated = "2025-08-17"
 attachment = true
 reasoning = false
 temperature = false
 open_weights = false
-tool_call = true
-
-[cost]
-input = 3
-output = 3
+tool_call = false
 
 [limit]
-context = 8_192
+context = 0
 output = 0
 
 [modalities]

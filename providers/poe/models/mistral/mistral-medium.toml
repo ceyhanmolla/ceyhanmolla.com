@@ -1,0 +1,20 @@
+name = "mistral-medium"
+release_date = "2023-12-20"
+last_updated = "2023-12-20"
+attachment = true
+reasoning = false
+temperature = false
+open_weights = false
+tool_call = false
+
+[cost]
+input = 2.7
+output = 8.1
+
+[limit]
+context = 32_000
+output = 0
+
+[modalities]
+input = ["text", "image"]
+output = ["text"]

@@ -14,7 +14,7 @@ cache_read = 0.16
 image = 96
 
 [limit]
-context = 32_768
+context = 65_536
 output = 0
 
 [modalities]
