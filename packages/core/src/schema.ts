@@ -25,6 +25,7 @@ export const Model = z
   .object({
     id: z.string(),
     name: z.string().min(1, "Model name cannot be empty"),
+    family: z.string().optional(),
     attachment: z.boolean(),
     reasoning: z.boolean(),
     tool_call: z.boolean(),
