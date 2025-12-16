@@ -11,6 +11,9 @@ INCLUDE_ALL_PROVIDERS="workers-ai replicate"
 # Namespaces to skip entirely (provider/namespace format)
 SKIP_NAMESPACES="replicate/replicate-internal"
 
+# Specific models to skip (exact model IDs)
+SKIP_MODELS="aura-1 whisper"
+
 # Providers to cross-reference from source provider files
 CROSS_REFERENCE_PROVIDERS="openai anthropic"
 
@@ -81,6 +84,13 @@ should_include_model() {
   
   # Extract provider from model ID (first path segment)
   provider=$(echo "${model_id}" | cut -d'/' -f1)
+  
+  # Check if model matches any skip pattern (partial match on model name)
+  for skip in ${SKIP_MODELS}; do
+    if [[ "${model_id}" == *"${skip}"* ]]; then
+      return 1  # Exclude
+    fi
+  done
   
   # Check if model is in a skipped namespace
   for ns in ${SKIP_NAMESPACES}; do

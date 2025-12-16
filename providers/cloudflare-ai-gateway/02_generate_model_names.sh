@@ -16,8 +16,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/utils.sh"
 
 # =============================================================================
+# Step 2: Update model names
+# =============================================================================
+
+echo ""
+echo "=== Step 2: Generating / adding missing model names ==="
+"${SCRIPT_DIR}/generate_model_names.sh"
+
+# =============================================================================
 # Main script
 # =============================================================================
+
 DATA_DIR="${SCRIPT_DIR}/data"
 MODEL_NAMES_FILE="${SCRIPT_DIR}/model_names.json"
 API_RESPONSE_FILE="${DATA_DIR}/api_response.json"
