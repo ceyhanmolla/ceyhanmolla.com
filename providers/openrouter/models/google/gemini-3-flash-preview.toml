@@ -13,9 +13,9 @@ open_weights = false
 field = "reasoning_details"
 
 [cost]
-input = 0.15
-output = 0.60
-cache_read = 0.0375
+input = 0.50
+output = 3.00
+cache_read = 0.05
 
 [limit]
 context = 1_048_576
