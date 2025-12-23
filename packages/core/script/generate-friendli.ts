@@ -64,7 +64,7 @@ function inferFamily(modelId: string, modelName: string): string | undefined {
 function extractModelName(fullName: string): string {
   // "meta-llama/Llama-3.3-70B-Instruct" -> "Llama 3.3 70B Instruct"
   const parts = fullName.split("/");
-  const modelName = parts[parts.length - 1];
+  const modelName = parts.at(-1) ?? fullName;
   return modelName
     .replace(/-/g, " ")
     .replace(/\b\w/g, (l) => l.toUpperCase());
