@@ -1,12 +1,11 @@
-name = "Grok 4 Fast None Reasoning"
-family = "grok-4"
-release_date = "2025-09-19"
-last_updated = "2025-09-19"
+name = "Grok 4.1 Fast Non Reasoning"
+release_date = "2025-11-20"
+last_updated = "2025-11-20"
 attachment = true
 reasoning = false
 temperature = true
-knowledge = "2025-01-01"
 tool_call = true
+knowledge = "2025-01-01"
 open_weights = false
 
 [cost]
@@ -16,7 +15,7 @@ cache_read = 0.05
 
 [limit]
 context = 2_000_000
-output = 30_000
+output = 64_000
 
 [modalities]
 input = ["text", "image"]

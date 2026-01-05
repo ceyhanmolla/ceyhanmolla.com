@@ -1,6 +1,6 @@
-name = "Grok 4"
-release_date = "2025-08-19"
-last_updated = "2025-08-19"
+name = "Grok 4.1 Fast"
+release_date = "2025-11-20"
+last_updated = "2025-11-20"
 attachment = true
 reasoning = true
 temperature = true
@@ -9,14 +9,14 @@ knowledge = "2025-01-01"
 open_weights = false
 
 [cost]
-input = 3.00
-output = 15.00
-cache_read = 0.75
+input = 0.20
+output = 0.50
+cache_read = 0.05
 
 [limit]
-context = 256_000
+context = 2_000_000
 output = 64_000
 
 [modalities]
-input = ["image", "text"]
+input = ["text", "image"]
 output = ["text"]

@@ -1,6 +1,6 @@
-name = "Grok 4"
-release_date = "2025-08-19"
-last_updated = "2025-08-19"
+name = "Step-3"
+release_date = "2025-12-18"
+last_updated = "2025-12-18"
 attachment = true
 reasoning = true
 temperature = true
@@ -9,12 +9,11 @@ knowledge = "2025-01-01"
 open_weights = false
 
 [cost]
-input = 3.00
-output = 15.00
-cache_read = 0.75
+input = 0.21
+output = 0.57
 
 [limit]
-context = 256_000
+context = 65_536
 output = 64_000
 
 [modalities]
