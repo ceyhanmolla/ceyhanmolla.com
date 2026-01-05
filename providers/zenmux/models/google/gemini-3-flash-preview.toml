@@ -1,7 +1,7 @@
-name = "MiMo-V2-Flash"
+name = "Gemini 3 Flash Preview"
 release_date = "2025-12-17"
 last_updated = "2025-12-17"
-attachment = false
+attachment = true
 reasoning = true
 temperature = true
 tool_call = true
@@ -9,13 +9,15 @@ knowledge = "2025-01-01"
 open_weights = false
 
 [cost]
-input = 0.00
-output = 0.00
+input = 0.50
+output = 3.00
+cache_read = 0.05
+cache_write = 1.00
 
 [limit]
-context = 262_144
+context = 1_048_576
 output = 64_000
 
 [modalities]
-input = ["text"]
+input = ["text", "image", "audio"]
 output = ["text"]
