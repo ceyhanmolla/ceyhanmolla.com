@@ -10,9 +10,9 @@ structured_output = true
 open_weights = true
 
 [cost]
-input = 0.27
-output = 0.41
-reasoning = 0.615
+input = 0.25
+output = 0.38
+reasoning = 0.57
 cache_read = 0.0
 cache_write = 0.0
 input_audio = 0.0
@@ -20,7 +20,7 @@ output_audio = 0.0
 
 [limit]
 context = 163840
-output = 16384
+output = 65536
 
 [modalities]
 input = ['text']

@@ -18,8 +18,8 @@ input_audio = 0.0
 output_audio = 0.0
 
 [limit]
-context = 40960
-output = 40960
+context = 262144
+output = 262144
 
 [modalities]
 input = ['text']

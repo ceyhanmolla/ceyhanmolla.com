@@ -10,9 +10,9 @@ structured_output = true
 open_weights = true
 
 [cost]
-input = 0.3
-output = 1.2
-reasoning = 1.7999999999999998
+input = 0.25
+output = 0.85
+reasoning = 1.275
 cache_read = 0.0
 cache_write = 0.0
 input_audio = 0.0

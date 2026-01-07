@@ -22,5 +22,5 @@ context = 40960
 output = 40960
 
 [modalities]
-input = ['text']
+input = ['text', 'image']
 output = ['text']
