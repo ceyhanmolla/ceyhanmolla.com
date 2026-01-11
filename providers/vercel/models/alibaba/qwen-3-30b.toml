@@ -1,4 +1,5 @@
 name = "Qwen3-30B-A3B"
+family = "qwen3-30b"
 release_date = "2025-04"
 last_updated = "2025-04"
 attachment = false

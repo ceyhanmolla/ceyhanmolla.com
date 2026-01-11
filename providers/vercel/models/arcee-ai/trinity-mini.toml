@@ -1,4 +1,5 @@
 name = "Trinity Mini"
+family = "trinity"
 release_date = "2025-12"
 last_updated = "2025-12"
 attachment = false

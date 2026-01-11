@@ -1,4 +1,5 @@
 name = "LongCat Flash Chat"
+family = "longcat"
 release_date = "2025-08-30"
 last_updated = "2025-08-30"
 attachment = false
