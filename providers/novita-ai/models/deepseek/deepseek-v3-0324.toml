@@ -1,9 +1,11 @@
 name = "DeepSeek V3 0324"
+family = "deepseek"
 release_date = "2025-03-25"
 last_updated = "2025-03-25"
 attachment = false
 reasoning = false
 temperature = true
+knowledge = "2024-07"
 tool_call = true
 structured_output = true
 open_weights = true

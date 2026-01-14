@@ -1,11 +1,13 @@
 name = "baichuan-m2-32b"
+family = "baichuan"
 release_date = "2025-08-13"
 last_updated = "2025-08-13"
 attachment = false
-reasoning = true
+reasoning = false
 temperature = true
+knowledge = "2024-12"
 tool_call = false
-structured_output = true
+structured_output = false
 open_weights = true
 
 [cost]

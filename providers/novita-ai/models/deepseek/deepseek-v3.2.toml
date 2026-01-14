@@ -1,4 +1,5 @@
 name = "Deepseek V3.2"
+family = "deepseek"
 release_date = "2025-12-01"
 last_updated = "2025-12-01"
 attachment = false
@@ -16,6 +17,9 @@ cache_read = 0.1345
 [limit]
 context = 163_840
 output = 65_536
+
+[interleaved]
+field = "reasoning_content"
 
 [modalities]
 input = ["text"]
