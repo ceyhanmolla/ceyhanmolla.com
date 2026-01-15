@@ -1,0 +1,14 @@
+name = "Qwen VL-MAX-2025-01-25"
+attachment = true
+reasoning = false
+tool_call = true
+temperature = true
+structured_output = false
+open_weights = false
+
+[limit]
+context = 128_000
+
+[modalities]
+input = ["text", "image", "audio", "video"]
+output = ["text"]

@@ -1,0 +1,15 @@
+name = "Qwen3 235b A22B Instruct 2507"
+attachment = false
+reasoning = false
+tool_call = true
+temperature = true
+structured_output = false
+open_weights = false
+
+[limit]
+context = 262_144
+output = 64_000
+
+[modalities]
+input = ["text"]
+output = ["text"]

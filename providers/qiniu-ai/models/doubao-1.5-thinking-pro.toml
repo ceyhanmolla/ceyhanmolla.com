@@ -1,0 +1,15 @@
+name = "Doubao 1.5 Thinking Pro"
+attachment = false
+reasoning = true
+tool_call = true
+temperature = true
+structured_output = false
+open_weights = false
+
+[limit]
+context = 128_000
+output = 16_000
+
+[modalities]
+input = ["text"]
+output = ["text"]
