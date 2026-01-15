@@ -13,7 +13,7 @@ output = 1.320
 
 [limit]
 context = 1_000_000
-output = 80_000
+output = 128_000
 
 [modalities]
 input = ["text"]
