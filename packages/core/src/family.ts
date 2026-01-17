@@ -277,8 +277,6 @@ export const ModelFamilyValues = [
   // NeMo
   "nemoretriever",
 
-
-
   // Nano Banana
   "nano-banana",
 
@@ -345,6 +343,9 @@ export const ModelFamilyValues = [
 
   // Neural Chat
   "neural-chat",
+
+  // Pangu (Ascend Tribe)
+  "pangu",
 ] as const;
 
 export const ModelFamily = z.enum(ModelFamilyValues);
