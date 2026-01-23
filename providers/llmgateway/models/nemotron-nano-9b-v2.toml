@@ -1,5 +1,5 @@
 name = "Nemotron Nano 9B V2 (Free)"
-family = "nvidia"
+family = "nemotron"
 release_date = "2025-08-18"
 last_updated = "2025-08-18"
 attachment = false
