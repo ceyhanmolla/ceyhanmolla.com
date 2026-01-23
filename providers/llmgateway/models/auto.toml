@@ -1,5 +1,5 @@
 name = "Auto Route"
-family = "llmgateway"
+family = "auto"
 release_date = "2024-01-01"
 last_updated = "2024-01-01"
 attachment = true
