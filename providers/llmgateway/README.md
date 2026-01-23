@@ -4,20 +4,10 @@ This provider enables access to 150+ AI models through [LLM Gateway](https://llm
 
 ## Directory Structure
 
-- **models/**: TOML configuration files organized by upstream provider
-  - **anthropic/**: Claude models
-  - **openai/**: GPT and o-series models
-  - **google/**: Gemini and Gemma models
-  - **meta/**: Llama models
-  - **xai/**: Grok models
-  - **deepseek/**: DeepSeek models
-  - **alibaba/**: Qwen models
-  - **mistral/**: Mistral and Mixtral models
-  - **zai/**: GLM models
-  - **llmgateway/**: LLM Gateway native models (auto-routing)
-  - And more...
+- **models/**: TOML configuration files for all supported models
 - **scripts/**: Scripts for generating model configurations
 - **provider.toml**: Provider configuration
+- **logo.svg**: Provider logo
 
 ## How It Works
 
