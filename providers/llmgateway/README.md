@@ -1,0 +1,68 @@
+# LLM Gateway Provider
+
+This provider enables access to 150+ AI models through [LLM Gateway](https://llmgateway.io), an OpenAI-compatible API gateway that provides unified access to 40+ LLM providers.
+
+## Directory Structure
+
+- **models/**: TOML configuration files organized by upstream provider
+  - **anthropic/**: Claude models
+  - **openai/**: GPT and o-series models
+  - **google/**: Gemini and Gemma models
+  - **meta/**: Llama models
+  - **xai/**: Grok models
+  - **deepseek/**: DeepSeek models
+  - **alibaba/**: Qwen models
+  - **mistral/**: Mistral and Mixtral models
+  - **zai/**: GLM models
+  - **llmgateway/**: LLM Gateway native models (auto-routing)
+  - And more...
+- **scripts/**: Scripts for generating model configurations
+- **provider.toml**: Provider configuration
+
+## How It Works
+
+LLM Gateway acts as a unified proxy for multiple AI providers. You can access any supported model through a single API endpoint using your LLM Gateway API key.
+
+## Prerequisites
+
+```bash
+export LLMGATEWAY_API_KEY="your-api-key"
+```
+
+## Supported Providers
+
+- OpenAI (GPT-3.5, GPT-4, GPT-4o, GPT-5, o1, o3, o4-mini)
+- Anthropic (Claude 3, 3.5, 3.7, 4, 4.5)
+- Google (Gemini 1.5, 2.0, 2.5, 3, Gemma)
+- Meta (Llama 3.1, 3.3, 4)
+- xAI (Grok 2, 3, 4)
+- DeepSeek (V3, R1)
+- Alibaba (Qwen Max, Plus, Flash, VL, Coder)
+- Mistral (Large, Pixtral, Mixtral)
+- ZAI (GLM 4.5, 4.6, 4.7)
+- ByteDance (Seed, Seedream)
+- Moonshot (Kimi K2)
+- Perplexity (Sonar)
+- And many more...
+
+## Usage with AI SDK
+
+```typescript
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+
+const llmgateway = createOpenAICompatible({
+  baseURL: "https://api.llmgateway.io/v1",
+  apiKey: process.env.LLMGATEWAY_API_KEY,
+});
+
+const result = await generateText({
+  model: llmgateway("claude-sonnet-4-5"),
+  prompt: "Hello!",
+});
+```
+
+## Links
+
+- [Documentation](https://llmgateway.io/docs)
+- [Pricing](https://llmgateway.io/pricing)
+- [GitHub](https://github.com/theopenco/llmgateway)
