@@ -5,9 +5,16 @@ This provider enables access to 150+ AI models through [LLM Gateway](https://llm
 ## Directory Structure
 
 - **models/**: TOML configuration files for all supported models
-- **scripts/**: Scripts for generating model configurations
 - **provider.toml**: Provider configuration
 - **logo.svg**: Provider logo
+
+## Regenerating Models
+
+Model configurations are generated from the [LLM Gateway repository](https://github.com/theopenco/llmgateway):
+
+```bash
+npx tsx scripts/export-models-dev.ts
+```
 
 ## How It Works
 
