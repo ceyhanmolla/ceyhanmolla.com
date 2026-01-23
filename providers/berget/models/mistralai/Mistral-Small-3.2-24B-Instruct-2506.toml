@@ -1,5 +1,5 @@
 name = "Mistral Small 3.2 24B Instruct 2506"
-family = "mistral"
+family = "mistral-small"
 release_date = "2025-10-01"
 last_updated = "2025-10-01"
 attachment = false
