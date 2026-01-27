@@ -15,6 +15,7 @@ field = "reasoning_details"
 [cost]
 input = 0.60
 output = 3.00
+cache_read = 0.10
 
 [limit]
 context = 262_144
