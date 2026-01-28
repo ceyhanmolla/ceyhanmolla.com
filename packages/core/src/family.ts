@@ -1,6 +1,10 @@
 import { z } from "zod";
 
 export const ModelFamilyValues = [
+  // Arcee
+  "trinity",
+  "trinity-mini",
+
   // OpenAI/GPT style
   "gpt",
   "gpt-codex",
