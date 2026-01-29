@@ -15,6 +15,7 @@ output = 0.06815
 
 [limit]
 context = 96_000
+output = 96_000
 
 [modalities]
 input = ["text", "image"]
