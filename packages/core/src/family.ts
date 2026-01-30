@@ -1,6 +1,10 @@
 import { z } from "zod";
 
 export const ModelFamilyValues = [
+  // Arcee
+  "trinity",
+  "trinity-mini",
+
   // OpenAI/GPT style
   "gpt",
   "gpt-codex",
@@ -51,6 +55,7 @@ export const ModelFamilyValues = [
 
   // Moonshot Kimi
   "kimi",
+  "kimi-free",
   "kimi-thinking",
 
   // Mistral family
@@ -97,6 +102,7 @@ export const ModelFamilyValues = [
 
   // MiniMax
   "minimax",
+  "minimax-free",
 
   // Hunyuan
   "hunyuan",
@@ -277,8 +283,6 @@ export const ModelFamilyValues = [
   // NeMo
   "nemoretriever",
 
-
-
   // Nano Banana
   "nano-banana",
 
@@ -345,6 +349,9 @@ export const ModelFamilyValues = [
 
   // Neural Chat
   "neural-chat",
+
+  // Pangu (Ascend Tribe)
+  "pangu",
 ] as const;
 
 export const ModelFamily = z.enum(ModelFamilyValues);
