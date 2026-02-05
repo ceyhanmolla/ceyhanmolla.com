@@ -1,23 +1,23 @@
-name = "Llama-3.1-Nemotron-Ultra-253B-v1"
+name = "GLM-4.7 (FP8)"
 attachment = false
 reasoning = false
 tool_call = true
 structured_output = true
 temperature = true
-knowledge = "2024-12"
-release_date = "2025-01-15"
+knowledge = "2025-12"
+release_date = "2026-01-15"
 last_updated = "2026-02-04"
-open_weights = true
+open_weights = false
 
 [cost]
-input = 0.60
-output = 1.80
-cache_read = 0.06
-cache_write = 0.75
+input = 0.40
+output = 2.00
+cache_read = 0.04
+cache_write = 0.50
 
 [limit]
 context = 128_000
-input = 120_000
+input = 124_000
 output = 4_096
 
 [modalities]
