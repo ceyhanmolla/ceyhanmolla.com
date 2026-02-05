@@ -30,32 +30,22 @@
 
 ## Model Configuration
 
-### Multi-Provider Model Distribution
-- Same model appears in 3+ separate provider directories with **no cross-referencing**
-- Each provider maintains independent TOML files with provider-specific IDs
-- Example: Claude Opus 4.6 exists in `anthropic/`, `amazon-bedrock/`, `google-vertex-anthropic/`, `cloudflare-ai-gateway/`
-- Content (capabilities, pricing) is manually duplicated - no shared source
-
-### Model ID = Filename
-- The `id` field is **auto-injected** by `generate.ts` from the filename (minus `.toml`)
-- Never include `id:` in TOML files - it's derived from the file path
-- Filename `anthropic.claude-opus-4-6-v1.toml` → ID `anthropic.claude-opus-4-6-v1`
+- Model `id` is **auto-injected** from filename (minus `.toml`) — never put `id` in TOML files
+- Same model is duplicated across provider directories with no cross-referencing
+- Schema uses `.strict()` — extra fields cause validation errors
 
 ### Bedrock Naming Patterns
-- Most dated models use `-v1:0` suffix: `anthropic.claude-3-5-sonnet-20241022-v1:0.toml`
-- **Latest/undated models use bare `-v1`**: `anthropic.claude-opus-4-6-v1.toml` (no `:0`)
-- Legacy models also use bare version: `anthropic.claude-instant-v1.toml`, `anthropic.claude-v2.toml`
+- Dated models: `-v1:0` suffix (`anthropic.claude-3-5-sonnet-20241022-v1:0.toml`)
+- Latest/undated models: bare `-v1` (`anthropic.claude-opus-4-6-v1.toml`)
 - Region prefixes: `us.`, `eu.`, `global.` (default has no prefix)
 
 ### Vertex AI Naming Patterns
-- Dated models use `@YYYYMMDD`: `claude-opus-4-5@20251101.toml`
-- **Latest/undated models use bare name**: `claude-opus-4-6.toml` (no `@` suffix)
-- Pattern: filename without `@` means it's the current/latest version
+- Dated models: `@YYYYMMDD` (`claude-opus-4-5@20251101.toml`)
+- Latest/undated models: bare name (`claude-opus-4-6.toml`)
 
 ### Cost Schema
 - `cost.context_over_200k` is a nested `Cost` object for >200K token pricing
 - Cache pricing ratios: standard models use 10%/125% (read/write), regional variants may use 30%/375%
-- Always validate with `bun validate` - schema uses `.strict()` so extra fields cause errors
 
 ### Required vs Optional Fields
 | Field | Required? | Notes |
