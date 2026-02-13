@@ -16,7 +16,7 @@ cache_write = 3.2
 
 [limit]
 context = 983_040
-output = 32_768
+output = 64_000
 
 [modalities]
 input = ["text", "image", "pdf"]
