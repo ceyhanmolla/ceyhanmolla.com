@@ -1,0 +1,21 @@
+name = "DeepSeek R1 0528"
+release_date = "2024-01-01"
+last_updated = "2024-01-01"
+attachment = false
+reasoning = true
+tool_call = false
+structured_output = false
+open_weights = false
+
+[cost]
+input = 0.4
+output = 1.7
+
+[limit]
+context = 128_000
+input = 128_000
+output = 163_840
+
+[modalities]
+input = ["text"]
+output = ["text"]

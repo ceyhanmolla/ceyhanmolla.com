@@ -1,0 +1,21 @@
+name = "OpenAI o3-mini (Low)"
+release_date = "2024-01-01"
+last_updated = "2024-01-01"
+attachment = false
+reasoning = true
+tool_call = true
+structured_output = true
+open_weights = false
+
+[cost]
+input = 9.996
+output = 19.992
+
+[limit]
+context = 200_000
+input = 200_000
+output = 100_000
+
+[modalities]
+input = ["text"]
+output = ["text"]

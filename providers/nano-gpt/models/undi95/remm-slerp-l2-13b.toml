@@ -1,0 +1,21 @@
+name = "ReMM SLERP 13B"
+release_date = "2024-01-01"
+last_updated = "2024-01-01"
+attachment = true
+reasoning = false
+tool_call = false
+structured_output = false
+open_weights = false
+
+[cost]
+input = 0.799
+output = 1.207
+
+[limit]
+context = 6_144
+input = 6_144
+output = 4_096
+
+[modalities]
+input = ["text", "pdf"]
+output = ["text"]

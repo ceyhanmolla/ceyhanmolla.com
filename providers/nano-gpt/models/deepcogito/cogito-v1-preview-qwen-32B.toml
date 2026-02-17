@@ -1,0 +1,21 @@
+name = "Cogito v1 Preview Qwen 32B"
+release_date = "2025-05-10"
+last_updated = "2025-05-10"
+attachment = false
+reasoning = false
+tool_call = false
+structured_output = false
+open_weights = false
+
+[cost]
+input = 1.8
+output = 1.8
+
+[limit]
+context = 128_000
+input = 128_000
+output = 32_768
+
+[modalities]
+input = ["text"]
+output = ["text"]
