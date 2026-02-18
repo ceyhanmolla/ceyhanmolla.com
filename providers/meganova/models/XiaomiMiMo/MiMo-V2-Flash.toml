@@ -9,9 +9,6 @@ knowledge = "2024-12-01"
 tool_call = true
 open_weights = true
 
-[interleaved]
-field = "reasoning_content"
-
 [cost]
 input = 0.10
 output = 0.30

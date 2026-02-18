@@ -8,6 +8,9 @@ temperature = true
 tool_call = true
 open_weights = true
 
+[interleaved]
+field = "reasoning_content"
+
 [cost]
 input = 0.30
 output = 1.20
