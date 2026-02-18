@@ -1,5 +1,5 @@
 name = "GLM 4.7 Flash TEE"
-family = "tee"
+family = "glm-flash"
 release_date = "2026-01-19"
 last_updated = "2026-01-19"
 attachment = false

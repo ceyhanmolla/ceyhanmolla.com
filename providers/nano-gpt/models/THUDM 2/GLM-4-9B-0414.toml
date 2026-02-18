@@ -1,5 +1,5 @@
 name = "GLM 4 9B 0414"
-family = "thudm"
+family = "glm"
 release_date = "2025-04-14"
 last_updated = "2025-04-14"
 attachment = false

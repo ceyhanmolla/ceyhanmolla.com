@@ -1,5 +1,5 @@
 name = "GPT-4 Turbo Preview"
-family = "openai"
+family = "gpt"
 release_date = "2023-11-06"
 last_updated = "2024-01-01"
 attachment = false

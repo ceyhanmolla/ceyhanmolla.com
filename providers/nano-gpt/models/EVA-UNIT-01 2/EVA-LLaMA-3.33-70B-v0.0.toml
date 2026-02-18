@@ -1,5 +1,5 @@
 name = "EVA Llama 3.33 70B"
-family = "eva-unit-01"
+family = "llama"
 release_date = "2025-07-26"
 last_updated = "2025-07-26"
 attachment = false

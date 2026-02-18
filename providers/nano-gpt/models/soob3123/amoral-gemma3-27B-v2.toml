@@ -1,5 +1,5 @@
 name = "Amoral Gemma3 27B v2"
-family = "soob3123"
+family = "gemma"
 release_date = "2025-05-23"
 last_updated = "2025-05-23"
 attachment = false

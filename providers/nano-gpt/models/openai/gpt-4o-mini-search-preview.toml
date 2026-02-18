@@ -1,5 +1,5 @@
 name = "GPT-4o mini Search Preview"
-family = "openai"
+family = "gpt-mini"
 release_date = "2024-07-18"
 last_updated = "2024-07-18"
 attachment = false

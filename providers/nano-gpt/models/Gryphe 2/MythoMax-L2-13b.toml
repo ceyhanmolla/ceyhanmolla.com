@@ -1,5 +1,5 @@
 name = "MythoMax 13B"
-family = "gryphe"
+family = "llama"
 release_date = "2025-08-08"
 last_updated = "2025-08-08"
 attachment = false

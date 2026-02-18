@@ -1,5 +1,5 @@
 name = "ChatGPT 4o"
-family = "openai"
+family = "gpt"
 release_date = "2024-05-13"
 last_updated = "2024-05-13"
 attachment = true

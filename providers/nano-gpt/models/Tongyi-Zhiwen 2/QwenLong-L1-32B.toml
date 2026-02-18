@@ -1,5 +1,5 @@
 name = "QwenLong L1 32B"
-family = "tongyi-zhiwen"
+family = "qwen"
 release_date = "2025-01-25"
 last_updated = "2025-01-25"
 attachment = false

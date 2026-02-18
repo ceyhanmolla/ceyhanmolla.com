@@ -1,5 +1,5 @@
 name = "RNJ-1 Instruct 8B"
-family = "essentialai"
+family = "rnj"
 release_date = "2025-12-13"
 last_updated = "2025-12-13"
 attachment = false

@@ -1,5 +1,5 @@
 name = "Mistral Medium 3"
-family = "mistralai"
+family = "mistral-medium"
 release_date = "2025-09-25"
 last_updated = "2025-09-25"
 attachment = true

@@ -1,5 +1,5 @@
 name = "OpenAI o3-pro (2025-06-10)"
-family = "openai"
+family = "o-pro"
 release_date = "2025-06-10"
 last_updated = "2025-06-10"
 attachment = false

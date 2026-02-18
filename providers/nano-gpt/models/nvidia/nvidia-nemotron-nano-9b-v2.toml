@@ -1,5 +1,5 @@
 name = "Nvidia Nemotron Nano 9B v2"
-family = "nvidia"
+family = "nemotron"
 release_date = "2025-08-18"
 last_updated = "2025-08-18"
 attachment = false

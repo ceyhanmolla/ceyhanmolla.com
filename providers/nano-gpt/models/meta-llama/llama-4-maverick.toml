@@ -1,5 +1,5 @@
 name = "Llama 4 Maverick"
-family = "meta-llama"
+family = "llama"
 release_date = "2025-09-05"
 last_updated = "2025-09-05"
 attachment = true

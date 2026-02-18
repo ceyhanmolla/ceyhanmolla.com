@@ -1,5 +1,5 @@
 name = "MS Evalebis 70b"
-family = "steelskull"
+family = "llama"
 release_date = "2024-12-06"
 last_updated = "2024-12-06"
 attachment = false

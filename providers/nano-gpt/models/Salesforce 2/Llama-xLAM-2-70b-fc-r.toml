@@ -1,5 +1,5 @@
 name = "Llama-xLAM-2 70B fc-r"
-family = "salesforce"
+family = "llama"
 release_date = "2025-04-13"
 last_updated = "2025-04-13"
 attachment = false

@@ -1,5 +1,5 @@
 name = "Amazon Nova Lite 1.0"
-family = "amazon"
+family = "nova-lite"
 release_date = "2024-12-03"
 last_updated = "2024-12-03"
 attachment = false

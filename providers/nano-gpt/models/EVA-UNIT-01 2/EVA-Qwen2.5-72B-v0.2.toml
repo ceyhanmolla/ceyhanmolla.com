@@ -1,5 +1,5 @@
 name = "EVA-Qwen2.5-72B-v0.2"
-family = "eva-unit-01"
+family = "qwen"
 release_date = "2025-09-25"
 last_updated = "2025-09-25"
 attachment = false

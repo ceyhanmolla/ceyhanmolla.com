@@ -1,5 +1,5 @@
 name = "Cogito v1 Preview Qwen 32B"
-family = "deepcogito"
+family = "qwen"
 release_date = "2025-05-10"
 last_updated = "2025-05-10"
 attachment = false

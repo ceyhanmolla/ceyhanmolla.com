@@ -1,5 +1,5 @@
 name = "GPT-3.5 Turbo"
-family = "openai"
+family = "gpt"
 release_date = "2022-11-30"
 last_updated = "2024-01-01"
 attachment = false
