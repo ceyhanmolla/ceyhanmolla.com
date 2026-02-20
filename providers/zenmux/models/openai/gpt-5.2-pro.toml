@@ -6,7 +6,6 @@ reasoning = true
 temperature = false
 tool_call = true
 knowledge = "2025-08-31"
-structured_output = false
 open_weights = false
 
 [cost]
