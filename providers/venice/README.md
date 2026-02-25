@@ -16,7 +16,6 @@ The script can include alpha models when provided with a Venice API key with alp
 Key can be provided via:
 1. CLI argument: `--api-key=YOUR_KEY` or `--api-key YOUR_KEY`
 2. Environment variable: `VENICE_API_KEY`
-3. Interactive prompt (press Enter to skip for public models only)
 
 Details
 - Source endpoint: `https://api.venice.ai/api/v1/models?type=text`

@@ -3,29 +3,10 @@
 import { z } from "zod";
 import path from "node:path";
 import { readdir } from "node:fs/promises";
-import * as readline from "node:readline";
 import { ModelFamilyValues } from "../src/family.js";
 
 // Venice API endpoint
 const API_ENDPOINT = "https://api.venice.ai/api/v1/models?type=text";
-
-async function promptForApiKey(): Promise<string | null> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  return new Promise((resolve) => {
-    rl.question(
-      "Enter Venice API key to include alpha models (or press Enter to skip): ",
-      (answer) => {
-        rl.close();
-        const trimmed = answer.trim();
-        resolve(trimmed.length > 0 ? trimmed : null);
-      },
-    );
-  });
-}
 
 // Zod schemas for API response validation
 const Capabilities = z
@@ -487,7 +468,7 @@ async function main() {
     "models",
   );
 
-  // Check for API key from CLI argument, environment, or prompt
+  // Check for API key from CLI argument or environment variable
   let apiKey: string | null = null;
 
   // Check CLI args for --api-key=xxx or --api-key xxx
@@ -504,11 +485,6 @@ async function main() {
   // Fall back to environment variable
   if (!apiKey) {
     apiKey = process.env.VENICE_API_KEY ?? null;
-  }
-
-  // Prompt if still no key
-  if (!apiKey) {
-    apiKey = await promptForApiKey();
   }
 
   const includeAlpha = apiKey !== null;
