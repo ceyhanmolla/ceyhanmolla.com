@@ -2,10 +2,10 @@ name = "MiniMax-M2.5"
 family = "minimax"
 release_date = "2026-02-12"
 last_updated = "2026-02-12"
-knowledge = "2025-08"
 attachment = false
 reasoning = true
 temperature = true
+knowledge = "2025-08"
 tool_call = true
 open_weights = true
 
