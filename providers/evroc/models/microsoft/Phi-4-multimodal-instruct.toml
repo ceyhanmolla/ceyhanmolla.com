@@ -16,5 +16,5 @@ context = 32_000
 output = 32_000
 
 [modalities]
-input = ["text"]
-output = ["text", "image"]
+input = ["text", "image"]
+output = ["text"]
