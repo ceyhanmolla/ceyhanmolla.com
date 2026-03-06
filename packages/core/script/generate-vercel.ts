@@ -284,7 +284,7 @@ function mergeModel(
     ...(status && { status }),
     limit: {
       context: contextLimit,
-      ...(contextLimit > 0 && outputLimit > 0 && { input: contextLimit - outputLimit }),
+      ...(contextLimit > outputLimit && { input: contextLimit - outputLimit }),
       output: outputLimit,
     },
     modalities: {

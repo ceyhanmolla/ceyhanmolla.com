@@ -18,6 +18,7 @@ cache_read = 0.14
 
 [limit]
 context = 216144
+input = 131_072
 output = 216144
 
 [modalities]

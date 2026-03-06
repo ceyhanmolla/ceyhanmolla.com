@@ -15,6 +15,7 @@ output = 0.29
 
 [limit]
 context = 262144
+input = 262_144
 output = 32000
 
 [modalities]
