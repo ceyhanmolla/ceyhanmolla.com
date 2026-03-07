@@ -12,6 +12,9 @@ open_weights = true
 input = 0.30
 output = 1.20
 
+[interleaved]
+field = "reasoning_content"
+
 [limit]
 context = 204_800
 output = 131_072
