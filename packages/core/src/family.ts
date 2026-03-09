@@ -194,6 +194,9 @@ export const ModelFamilyValues = [
   // Mimo
   "mimo",
 
+  // Clarifai
+  "mm-poly",
+
   // Longcat
   "longcat",
 
