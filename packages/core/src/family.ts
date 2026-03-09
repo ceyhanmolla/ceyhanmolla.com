@@ -281,6 +281,9 @@ export const ModelFamilyValues = [
   // Parakeet
   "parakeet",
 
+  // MiMo
+  "mimo-flash-free",
+
   // NeMo
   "nemoretriever",
 
