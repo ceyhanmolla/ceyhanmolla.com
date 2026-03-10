@@ -128,9 +128,6 @@ export const ModelFamilyValues = [
   "solar-mini",
   "solar-pro",
 
-  // Exaone
-  "exaone",
-
   // Step (StepFun)
   "step",
 
@@ -196,6 +193,9 @@ export const ModelFamilyValues = [
 
   // Mimo
   "mimo",
+
+  // Clarifai
+  "mm-poly",
 
   // Longcat
   "longcat",
@@ -283,6 +283,9 @@ export const ModelFamilyValues = [
 
   // Parakeet
   "parakeet",
+
+  // MiMo
+  "mimo-flash-free",
 
   // NeMo
   "nemoretriever",
