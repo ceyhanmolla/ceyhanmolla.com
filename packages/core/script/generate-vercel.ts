@@ -235,6 +235,10 @@ async function loadExistingModel(filePath: string): Promise<ExistingModel | null
   }
 }
 
+function isOpenAIModel(modelId: string): boolean {
+  return modelId.startsWith("openai/");
+}
+
 function mergeModel(
   apiModel: z.infer<typeof VercelModel>,
   existing: ExistingModel | null,
@@ -284,7 +288,7 @@ function mergeModel(
     ...(status && { status }),
     limit: {
       context: contextLimit,
-      ...(contextLimit > outputLimit && { input: contextLimit - outputLimit }),
+      ...(isOpenAIModel(apiModel.id) && contextLimit > outputLimit && { input: contextLimit - outputLimit }),
       output: outputLimit,
     },
     modalities: {
