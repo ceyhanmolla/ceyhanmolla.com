@@ -1,4 +1,3 @@
-# TODO: Verify DeepInfra-specific pricing for Turbo variant
 name = "Llama 3.1 8B Turbo"
 family = "llama"
 release_date = "2024-07-23"
