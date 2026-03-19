@@ -104,6 +104,8 @@ export const ModelFamilyValues = [
 
   // MiniMax
   "minimax",
+  "minimax-m2.5",
+  "minimax-m2.7",
   "minimax-free",
 
   // Hunyuan
