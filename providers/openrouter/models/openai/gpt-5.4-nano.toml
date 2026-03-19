@@ -1,4 +1,4 @@
-name = "OpenAI: GPT-5.4 Nano"
+name = "GPT-5.4 Nano"
 family = "gpt-nano"
 release_date = "2026-03-17"
 last_updated = "2026-03-17"
@@ -20,5 +20,5 @@ context = 400_000
 output = 128_000
 
 [modalities]
-input = ["text", "image", "file"]
+input = ["text", "image", "pdf"]
 output = ["text"]
