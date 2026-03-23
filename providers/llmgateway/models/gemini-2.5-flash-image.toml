@@ -12,10 +12,11 @@ open_weights = false
 [cost]
 input = 0.30
 output = 30.00
+cache_read = 0.03
 
 [limit]
-context = 32_800
-output = 8_200
+context = 32_768
+output = 32_768
 
 [modalities]
 input = ["text", "image"]

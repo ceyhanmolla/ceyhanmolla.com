@@ -12,6 +12,7 @@ open_weights = false
 [cost]
 input = 0.40
 output = 1.60
+cache_read = 0.10
 
 [limit]
 context = 1_000_000

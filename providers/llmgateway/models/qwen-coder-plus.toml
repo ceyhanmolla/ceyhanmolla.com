@@ -1,21 +1,21 @@
-name = "Grok-3 Mini"
-family = "grok"
-release_date = "2025-04-09"
-last_updated = "2025-04-09"
+name = "Qwen Coder Plus"
+family = "qwen"
+release_date = "2024-09-18"
+last_updated = "2024-09-18"
 attachment = false
 reasoning = false
 temperature = true
 tool_call = true
 structured_output = true
-open_weights = false
+open_weights = true
 
 [cost]
-input = 0.30
-output = 0.50
+input = 1.00
+output = 5.00
 
 [limit]
 context = 131_072
-output = 16_384
+output = 8_192
 
 [modalities]
 input = ["text"]

@@ -11,11 +11,11 @@ open_weights = true
 status = "beta"
 
 [cost]
-input = 0.25
-output = 1.00
+input = 0.80
+output = 2.40
 
 [limit]
-context = 32_770
+context = 64_000
 output = 16_384
 
 [modalities]

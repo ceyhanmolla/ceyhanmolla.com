@@ -8,14 +8,16 @@ temperature = true
 tool_call = true
 structured_output = true
 open_weights = false
+status = "deprecated"
 
 [cost]
 input = 0.10
 output = 0.40
+cache_read = 0.03
 
 [limit]
-context = 1_000_000
-output = 16_384
+context = 1_048_576
+output = 8_192
 
 [modalities]
 input = ["text"]
