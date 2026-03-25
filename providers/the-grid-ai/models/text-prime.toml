@@ -1,0 +1,18 @@
+name = "Text Prime"
+family = "text"
+release_date = "2026-02-26"
+last_updated = "2026-02-26"
+attachment = false
+reasoning = true
+temperature = true
+tool_call = true
+structured_output = true
+status = "beta"
+
+[limit]
+context = 128_000
+output = 30_000
+
+[modalities]
+input = ["text"]
+output = ["text"]
