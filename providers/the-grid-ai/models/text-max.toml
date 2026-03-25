@@ -1,5 +1,4 @@
 name = "Text Max"
-family = "text"
 release_date = "2026-03-24"
 last_updated = "2026-03-24"
 attachment = false
@@ -8,6 +7,7 @@ temperature = true
 tool_call = true
 structured_output = true
 status = "beta"
+open_weights = false
 
 [limit]
 context = 1_000_000
