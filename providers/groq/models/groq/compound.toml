@@ -1,12 +1,12 @@
 name = "Compound"
 family = "groq"
-release_date = "unknown"
-last_updated = "unknown"
+release_date = "2025-09-04"
+last_updated = "2025-09-04"
 attachment = false
-reasoning = false
+reasoning = true
 temperature = true
-knowledge = "unknown"
-tool_call = false
+knowledge = "2025-09-04"
+tool_call = true
 open_weights = false
 
 [cost]
