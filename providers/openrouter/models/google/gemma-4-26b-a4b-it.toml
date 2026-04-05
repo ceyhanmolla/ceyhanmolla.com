@@ -10,7 +10,7 @@ structured_output = true
 tool_call = true
 open_weights = true
 
-[cost]  
+[cost]
 input = 0.13
 output = 0.40
 
