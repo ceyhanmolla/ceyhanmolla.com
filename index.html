@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#E62020">
+    <meta name="color-scheme" content="dark">
+    
+    <!-- Güvenlik Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <title>Ceyhan Molla | Web Infrastructure & IT Process Specialist</title>
+    <meta name="description" content="Ceyhan Molla - Web Infrastructure & IT Process Specialist. 20+ years experience in scaling, automating, and securing mission-critical systems.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ceyhanmolla.com">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ceyhan Molla | Web Infrastructure & IT Process Specialist">
+    <meta property="og:description" content="Scaling, automating, and securing mission-critical systems. 20+ years of IT infrastructure experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ceyhanmolla.com">
+    <meta property="og:image" content="https://www.ceyhanmolla.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preload Kritik Kaynaklar -->
+    <link rel="preload" href="images/hero.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.linkedin.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://www.behance.net">
+    <link rel="dns-prefetch" href="https://vimeo.com">
+    <link rel="dns-prefetch" href="https://github.com">
+    <link rel="dns-prefetch" href="https://dribbble.com">
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <style>
+        :root {
+            --brand-red: #E62020;
+            --brand-black: #0A0A0A;
+            --brand-white: #F4F4F4;
+            --font-main: 'Lexend', sans-serif;
+            --parallax-offset: 0px;
+            --navbar-height: 70px;
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-right: env(safe-area-inset-right);
+            --safe-area-bottom: env(safe-area-inset-bottom);
+            --safe-area-left: env(safe-area-inset-left);
+            
+            /* Animasyon süreleri - constants */
+            --anim-duration-fast: 300ms;
+            --anim-duration-normal: 400ms;
+            --anim-duration-slow: 800ms;
+            --anim-easing: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .scroll-indicator, .mouse, .wheel,
+            body::before {
+                display: none !important;
+            }
+        }
+
+        section, footer {
+            scroll-margin-top: 100px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            padding-top: var(--safe-area-top);
+            padding-right: var(--safe-area-right);
+            padding-bottom: var(--safe-area-bottom);
+            padding-left: var(--safe-area-left);
+        }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--brand-red);
+            color: var(--brand-black);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+            font-weight: 700;
+            border-radius: 0 0 4px 0;
+            transition: top var(--anim-duration-fast) ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .text-red { color: var(--brand-red); }
+        .text-black { color: var(--brand-black); }
+        .bg-red { background-color: var(--brand-red); }
+        .bg-white { background-color: var(--brand-white); color: var(--brand-black); }
+
+        /* NAVBAR - DESKTOP (Glassmorphism Pill) */
+        .navbar {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 15px 40px;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--anim-duration-fast) ease;
+            touch-action: manipulation;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li a {
+            color: var(--brand-black);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: color var(--anim-duration-fast);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 8px 4px;
+            touch-action: manipulation;
+        }
+
+        .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--brand-red);
+            transition: width var(--anim-duration-fast) ease;
+        }
+
+        .nav-list li a:hover::after,
+        .nav-list li a:focus::after {
+            width: 100%;
+        }
+
+        .nav-list li a:hover,
+        .nav-list li a:focus {
+            color: var(--brand-black);
+            outline: none;
+        }
+
+        .nav-list li a:active {
+            opacity: 0.7;
+        }
+
+        /* HAMBURGER BUTTON - White icon, transparent background */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+            position: relative;
+            touch-action: manipulation;
+            border-radius: 50%;
+            transition: background-color var(--anim-duration-fast);
+        }
+
+        .hamburger:focus-visible {
+            outline: 2px solid var(--brand-white);
+            outline-offset: 4px;
+        }
+
+        .hamburger:active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger-line {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-white);
+            margin: 3px 0;
+            transition: all var(--anim-duration-fast) cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-line {
+            background: var(--brand-black);
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* MOBILE NAV OVERLAY - Solid Background */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: var(--brand-red);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--anim-duration-normal) ease, visibility var(--anim-duration-normal) ease;
+            padding: 2rem;
+            padding-top: calc(2rem + var(--safe-area-top));
+            padding-bottom: calc(2rem + var(--safe-area-bottom));
+        }
+
+        .mobile-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mobile-nav-list li {
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--anim-duration-normal) ease, transform var(--anim-duration-normal) ease;
+        }
+
+        .mobile-nav.active .mobile-nav-list li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav.active .mobile-nav-list li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav.active .mobile-nav-list li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-nav.active .mobile-nav-list li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-nav.active .mobile-nav-list li:nth-child(4) { transition-delay: 0.4s; }
+
+        .mobile-nav-list li a {
+            color: var(--brand-black);
+            text-decoration: none;
+            font-size: clamp(2rem, 10vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            transition: transform var(--anim-duration-fast) ease, opacity var(--anim-duration-fast) ease;
+            display: inline-block;
+            position: relative;
+            padding: 0.5rem 1rem;
+            touch-action: manipulation;
+        }
+
+        .mobile-nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: var(--brand-black);
+            transition: width var(--anim-duration-fast) ease;
+        }
+
+        .mobile-nav-list li a:hover::after,
+        .mobile-nav-list li a:focus::after {
+            width: 80%;
+        }
+
+        .mobile-nav-list li a:hover,
+        .mobile-nav-list li a:focus {
+            transform: scale(1.05);
+            opacity: 0.9;
+            outline: none;
+        }
+
+        .mobile-nav-list li a:focus-visible {
+            outline: 2px solid var(--brand-black);
+            outline-offset: 4px;
+        }
+
+        .mobile-nav-list li a:active {
+            transform: scale(0.98);
+            opacity: 0.8;
+        }
+
+        /* Mobile Contact Info in Menu */
+        .mobile-nav-footer {
+            position: absolute;
+            bottom: calc(2rem + var(--safe-area-bottom));
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity var(--anim-duration-normal) ease 0.5s;
+            width: 100%;
+        }
+
+        .mobile-nav.active .mobile-nav-footer {
+            opacity: 1;
+        }
+
+        .mobile-nav-footer a {
+            color: var(--brand-black);
+            font-size: 0.875rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem;
+            display: inline-block;
+            touch-action: manipulation;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 768px) {
+            .navbar {
+                top: calc(20px + var(--safe-area-top));
+                right: calc(20px + var(--safe-area-right));
+                left: auto;
+                transform: none;
+                padding: 0;
+                background: transparent;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                border: none;
+                box-shadow: none;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar.scrolled {
+                top: calc(10px + var(--safe-area-top));
+                right: calc(10px + var(--safe-area-right));
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100dvh;
+            min-height: 600px;
+            background-image: url('images/hero.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--brand-black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            padding-top: calc(var(--navbar-height) + 40px + var(--safe-area-top));
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.875rem, 2vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            z-index: 2;
+            max-width: 90%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 12vw, 15rem);
+            letter-spacing: -0.05em;
+            z-index: 2;
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: calc(30px + var(--safe-area-bottom));
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid var(--brand-black);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background-color: var(--brand-black);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+
+        .scroll-text {
+            font-size: 0.75rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--brand-black);
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                opacity: 1;
+                top: 6px;
+            }
+            100% {
+                opacity: 0;
+                top: 20px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* SCROLL REVEAL TEXT SECTION */
+        .reveal-section {
+            background-color: var(--brand-black);
+            padding: 15vw 5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid #333;
+        }
+
+        #revealText {
+            font-size: clamp(1.25rem, 3.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        #revealText span {
+            color: rgba(244, 244, 244, 0.1);
+            transition: color var(--anim-duration-normal) ease;
+        }
+
+        #revealText span.active {
+            color: var(--brand-white);
+        }
+
+        /* STATS (DYNAMIC DOTS) SECTION - DÜZELTİLDİ */
+        .stats-section {
+            background-color: var(--brand-red);
+            color: var(--brand-black);
+            padding: 10vw 5vw;
+            border-top: 2px solid var(--brand-black);
+            border-bottom: 2px solid var(--brand-black);
+            position: relative;
+            overflow: hidden; 
+        }
+
+        #dotCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1; 
+        }
+
+        .stat-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(40px); 
+            transition: opacity var(--anim-duration-slow) var(--anim-easing), transform var(--anim-duration-slow) var(--anim-easing);
+            text-align: center;
+        }
+
+        @media(min-width: 768px) {
+            .stat-row {
+                flex-direction: row;
+                align-items: center;
+                gap: 8vw;
+                text-align: left;
+            }
+        }
+
+        .stat-row.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: clamp(4rem, 15vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            min-width: auto;
+            text-align: center;
+            transform: translateX(calc(var(--parallax-offset) * var(--parallax-direction, 1) * 1.2));
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        @media(min-width: 768px) {
+            .stat-number {
+                font-size: clamp(4rem, 10vw, 12rem);
+                min-width: 45%;
+                text-align: right;
+            }
+        }
+
+        .stat-label {
+            font-size: clamp(0.875rem, 4vw, 1.5rem);
+            font-weight: 300; 
+            line-height: 1.3;
+            text-transform: uppercase;
+            max-width: 300px;
+            text-align: center;
+            transform: translateX(calc(var(--parallax-offset) * var(--parallax-direction, 1) * 0.4));
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        @media(min-width: 768px) {
+            .stat-label {
+                font-size: clamp(1rem, 2.5vw, 2.5rem);
+                max-width: 600px;
+                text-align: left;
+            }
+        }
+
+        /* SKILLS ACCORDION */
+        .skills-section {
+            padding: 0; 
+            border-top: none; 
+        }
+
+        /* PROJECT IMAGE WRAPPER - 100% width */
+        .project-image-wrapper {
+            width: 100%;
+            height: 350px;
+            border-bottom: 2px solid #333;
+            background-color: var(--brand-black);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .project-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media(min-width: 768px) {
+            .project-image-wrapper {
+                height: 500px;
+            }
+        }
+
+        /* DESKTOP: Row layout */
+        .skill-block {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 2px solid #333;
+            container-type: inline-size;
+        }
+
+        .skill-number {
+            font-size: clamp(10rem, 25vw, 30rem);
+            font-weight: 900;
+            padding: 0 5vw;
+            color: var(--brand-white);
+            display: flex;
+            align-items: center;
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+        }
+
+        .skill-content {
+            flex: 1;
+            padding: 5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .skill-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        /* MOBILE: Column layout */
+        @media(max-width: 767px) {
+            .skill-block {
+                flex-direction: column;
+            }
+
+            .skill-number {
+                font-size: clamp(4rem, 20vw, 15rem);
+                padding: 3rem 5vw 1rem;
+                justify-content: center;
+            }
+
+            .skill-title {
+                font-size: clamp(1.25rem, 5vw, 4rem);
+                text-align: center;
+            }
+
+            .skill-content {
+                padding: 5vw;
+            }
+
+            .project-image-wrapper {
+                height: 250px;
+            }
+        }
+
+        .accordion-item {
+            border-top: 1px solid #444;
+        }
+
+        .accordion-header {
+            padding: 1.5rem 0;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color var(--anim-duration-fast) ease;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: inherit;
+            font-family: inherit;
+            cursor: pointer;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+
+        .accordion-header:hover,
+        .accordion-header:focus {
+            color: var(--brand-red);
+            outline: none;
+        }
+
+        .accordion-header:focus-visible {
+            outline: 2px solid var(--brand-red);
+            outline-offset: 4px;
+        }
+
+        .accordion-header:active {
+            opacity: 0.7;
+        }
+
+        .accordion-icon {
+            transition: transform var(--anim-duration-fast) ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--anim-duration-normal) ease, padding var(--anim-duration-normal) ease;
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+
+        /* FOOTER / CONTACT */
+        .footer {
+            background-color: var(--brand-red);
+            color: var(--brand-black);
+            padding: 10vw 5vw calc(5vw + var(--safe-area-bottom)) 5vw;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: clamp(2.5rem, 12vw, 15rem);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 4rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity var(--anim-duration-fast);
+            touch-action: manipulation;
+        }
+
+        a:hover,
+        a:focus {
+            opacity: 0.6;
+            outline: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+        }
+
+        a:active {
+            opacity: 0.4;
+        }
+
+        /* GRAIN OVERLAY */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 150px 150px;
+            opacity: 0.2;
+            animation: grain 0.5s steps(5) infinite;
+        }
+
+        @keyframes grain {
+            0% { background-position: 0 0; }
+            10% { background-position: -5% -10%; }
+            20% { background-position: -15% 5%; }
+            30% { background-position: 7% -25%; }
+            40% { background-position: -5% 25%; }
+            50% { background-position: -15% 10%; }
+            60% { background-position: 15% 0%; }
+            70% { background-position: 0% 15%; }
+            80% { background-position: 3% 35%; }
+            90% { background-position: -10% 10%; }
+            100% { background-position: 0 0; }
+        }
+
+        /* FOOTER LOGO */
+        .footer-logo {
+            margin-top: 2rem;
+            opacity: 0.6;
+            transition: opacity var(--anim-duration-fast);
+            text-align: center;
+        }
+
+        .footer-logo:hover,
+        .footer-logo:focus-within {
+            opacity: 1;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* SOCIAL LINKS */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--brand-black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-main);
+            transition: opacity var(--anim-duration-fast);
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            opacity: 0.6;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .social-links a:active {
+            opacity: 0.4;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--brand-red);
+            z-index: 100;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        /* Body lock when mobile nav open */
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        /* Print styles */
+        @media print {
+            .navbar, .scroll-indicator, .scroll-progress, body::before {
+                display: none !important;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: auto;
+                page-break-after: always;
+            }
+            
+            .skill-block {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!-- Desktop Menu -->
+        <ul class="nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger Button (Mobile Only) -->
+        <button class="hamburger" 
+                aria-label="Toggle navigation menu" 
+                aria-expanded="false"
+                aria-controls="mobileNav">
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" 
+         id="mobileNav" 
+         role="dialog" 
+         aria-modal="true"
+         aria-label="Mobile navigation menu">
+        <ul class="mobile-nav-list">
+            <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="mailto:info@ceyhanmolla.com">info@ceyhanmolla.com</a>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="hero" id="hero" aria-label="Introduction">
+            <div class="hero-subtitle">WEB INFRASTRUCTURE & IT PROCESS SPECIALIST</div>
+            <h1 class="hero-title">CEYHAN MOLLA</h1>
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span class="scroll-text">Scroll</span>
+            </div>
+        </section>
+
+        <section class="reveal-section" id="about" aria-label="About">
+            <p id="revealText">Scaling, automating, and securing mission-critical systems. Proficient in GNU/Linux architectures, network administration, and deep web hardening. Focused on high-availability infrastructures and operational excellence.</p>
+        </section>
+
+        <section class="stats-section" id="statsSection" aria-label="Statistics">
+            <canvas id="dotCanvas" aria-hidden="true"></canvas>
+            
+            <div class="stats-container">
+                <div class="stat-row" style="--parallax-direction: 1;">
+                    <div class="stat-number" data-target="20" data-suffix="+">0</div>
+                    <div class="stat-label">Years of Scaling<br>IT Infrastructure</div>
+                </div>
+                <div class="stat-row" style="--parallax-direction: -1;">
+                    <div class="stat-number" data-target="99.9" data-suffix="%">0</div>
+                    <div class="stat-label">Guaranteed<br>System Uptime</div>
+                </div>
+                <div class="stat-row" style="--parallax-direction: 1;">
+                    <div class="stat-number" data-target="25" data-suffix="+">0</div>
+                    <div class="stat-label">Mission-Critical<br>Projects Deployed</div>
+                </div>
+                <div class="stat-row" style="--parallax-direction: -1;">
+                    <div class="stat-number" data-target="150" data-suffix="K+">0</div>
+                    <div class="stat-label">Monthly Active<br>Platform Visitors</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills" aria-label="Skills">
+            
+            <!-- Görsel 01 - 100% width -->
+            <div class="project-image-wrapper" style="border-top: none; background-image: url('images/01.webp');" role="img" aria-label="IT Infrastructure visualization">
+            </div>
+
+            <div class="skill-block">
+                <div class="skill-number" aria-hidden="true">01</div>
+                <div class="skill-content">
+                    <h2 class="skill-title">IT INFRASTRUCTURE<br>& DEPLOYMENT</h2>
+                    <div class="accordion" role="region" aria-label="IT Infrastructure skills">
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-1" id="accordion-1">
+                                <span>GNU/Linux Architectures</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-1" class="accordion-body" role="region" aria-labelledby="accordion-1">
+                                Expertise in Ubuntu, Debian, and Arch environments for robust server operations.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-2" id="accordion-2">
+                                <span>High Availability Planning</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-2" class="accordion-body" role="region" aria-labelledby="accordion-2">
+                                Designing systems for 99.9% Uptime, alongside comprehensive Root-Cause Analysis.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-3" id="accordion-3">
+                                <span>Container & Server Management</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-3" class="accordion-body" role="region" aria-labelledby="accordion-3">
+                                Proficient in Dokploy, VPS, DNS, and Mail Server deployments.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Görsel 02 - 100% width -->
+            <div class="project-image-wrapper" style="background-image: url('images/02.webp');" role="img" aria-label="Automation visualization">
+            </div>
+
+            <div class="skill-block">
+                <div class="skill-number" aria-hidden="true">02</div>
+                <div class="skill-content">
+                    <h2 class="skill-title">AUTOMATION &<br>SYSTEM INTEGRATION</h2>
+                    <div class="accordion" role="region" aria-label="Automation skills">
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-4" id="accordion-4">
+                                <span>Workflow Automation</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-4" class="accordion-body" role="region" aria-labelledby="accordion-4">
+                                Complex Workflow Automation and API Integrations utilizing n8n.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-5" id="accordion-5">
+                                <span>IoT Data Processing</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-5" class="accordion-body" role="region" aria-labelledby="accordion-5">
+                                Architecting IoT-based systems (ESP32) and analyzing real-time data flows.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Görsel 03 - 100% width -->
+            <div class="project-image-wrapper" style="background-image: url('images/03.webp');" role="img" aria-label="Security visualization">
+            </div>
+
+            <div class="skill-block" style="border-bottom: none;">
+                <div class="skill-number" aria-hidden="true">03</div>
+                <div class="skill-content">
+                    <h2 class="skill-title">IT SECURITY &<br>DATA ANALYSIS</h2>
+                    <div class="accordion" role="region" aria-label="Security skills">
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-6" id="accordion-6">
+                                <span>Security Compliance</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-6" class="accordion-body" role="region" aria-labelledby="accordion-6">
+                                Implementation of ISO/IEC 27001 & ISO 19011, and Deep Web Hardening.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false" aria-controls="section-7" id="accordion-7">
+                                <span>Big Data Analytics</span>
+                                <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                            <div id="section-7" class="accordion-body" role="region" aria-labelledby="accordion-7">
+                                Utilizing Elasticsearch and Logstash for operational process optimization.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer" id="contact" role="contentinfo">
+        <h2 class="footer-title">LET'S BUILD.</h2>
+        <p style="font-size: clamp(1rem, 3vw, 1.5rem); font-weight: 300;">Ready to scale your mission-critical infrastructure.</p>
+         
+        <div class="social-links" role="list" aria-label="Social media links">
+            <a href="mailto:info@ceyhanmolla.com" role="listitem">Email</a>
+            <a href="https://www.linkedin.com/in/ceyhan-molla/" target="_blank" rel="noopener noreferrer" role="listitem">LinkedIn</a>
+            <a href="https://www.youtube.com/c/CeyhanMolla" target="_blank" rel="noopener noreferrer" role="listitem">YouTube</a>
+            <a href="https://www.behance.net/ceyhanmolla" target="_blank" rel="noopener noreferrer" role="listitem">Behance</a>
+            <a href="https://vimeo.com/ceyhanmolla" target="_blank" rel="noopener noreferrer" role="listitem">Vimeo</a>
+            <a href="https://github.com/ceyhanmolla" target="_blank" rel="noopener noreferrer" role="listitem">GitHub</a>
+            <a href="https://dribbble.com/ceyhanmolla" target="_blank" rel="noopener noreferrer" role="listitem">Dribbble</a>
+        </div>
+        <div class="footer-logo">
+            <a href="https://www.ceyhanmolla.com" target="_blank" rel="noopener noreferrer" aria-label="Ceyhan Molla website">
+                <img src="images/logo.svg" alt="Ceyhan Molla Logo" loading="lazy" width="50" height="50" fetchpriority="low">
+            </a>
+        </div>
+        <div style="margin-top: 5rem; font-size: 0.8rem; font-weight: 300;">
+            © 2026 Ceyhan Molla. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ceyhan Molla",
+        "jobTitle": "Web Infrastructure & IT Process Specialist",
+        "url": "https://www.ceyhanmolla.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/ceyhan-molla/",
+            "https://www.youtube.com/c/CeyhanMolla",
+            "https://www.behance.net/ceyhanmolla",
+            "https://vimeo.com/ceyhanmolla",
+            "https://github.com/ceyhanmolla",
+            "https://dribbble.com/ceyhanmolla"
+        ],
+        "knowsAbout": ["GNU/Linux", "IT Infrastructure", "System Automation", "Cybersecurity", "High Availability Systems"]
+    }
+    </script>
+
+    <script>
+        /**
+         * Ceyhan Molla Portfolio - Main JavaScript
+         * Constants and Configuration
+         */
+        const CONFIG = {
+            ANIMATION: {
+                DURATION_FAST: 300,
+                DURATION_NORMAL: 400,
+                DURATION_SLOW: 800,
+                COUNTER_DURATION: 2000,
+                STAGGER_DELAY: 150,
+                EASING: 'cubic-bezier(0.25, 1, 0.5, 1)'
+            },
+            CANVAS: {
+                PARTICLE_COUNT: 100,
+                CONNECTION_DISTANCE: 100
+            },
+            THRESHOLD: {
+                STATS: 0.3,
+                TEXT_REVEAL: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+            },
+            SCROLL: {
+                PROGRESS_UPDATE: true,
+                PARALLAX_UPDATE: true,
+                NAVBAR_UPDATE: true
+            }
+        };
+
+        /**
+         * Mobile Navigation Module
+         */
+        const MobileNav = (() => {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const body = document.body;
+            
+            let isOpen = false;
+
+            const toggle = () => {
+                isOpen = !isOpen;
+                hamburger.setAttribute('aria-expanded', isOpen);
+                mobileNav.classList.toggle('active', isOpen);
+                body.classList.toggle('nav-open', isOpen);
+                
+                // Focus management
+                if (isOpen) {
+                    setTimeout(() => mobileNavLinks[0]?.focus(), 100);
+                } else {
+                    hamburger.focus();
+                }
+            };
+
+            const close = () => {
+                if (isOpen) toggle();
+            };
+
+            const init = () => {
+                if (!hamburger || !mobileNav) return;
+
+                hamburger.addEventListener('click', toggle);
+                
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', close);
+                });
+
+                // Close on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && isOpen) close();
+                });
+
+                // Close on click outside
+                mobileNav.addEventListener('click', (e) => {
+                    if (e.target === mobileNav) close();
+                });
+
+                // Close on window resize to desktop
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && isOpen) close();
+                });
+            };
+
+            return { init, close };
+        })();
+
+        /**
+         * Scroll Progress Bar Module
+         */
+        const ScrollProgress = (() => {
+            const progressBar = document.getElementById('scrollProgress');
+            
+            const update = () => {
+                if (!progressBar) return;
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+                progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+            };
+
+            return { update };
+        })();
+
+        /**
+         * Text Reveal Animation Module
+         */
+        const TextReveal = (() => {
+            const revealText = document.getElementById('revealText');
+            if (!revealText) return null;
+
+            const textContent = revealText.innerText;
+            revealText.innerHTML = textContent.split(' ').map(word => `<span>${word}</span>`).join(' ');
+            const words = revealText.querySelectorAll('span');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    
+                    const rect = entry.boundingClientRect;
+                    const windowHeight = window.innerHeight;
+                    
+                    const start = windowHeight * 0.8;
+                    const end = windowHeight * 0.2;
+                    let progress = (start - rect.top) / (start - end);
+                    progress = Math.max(0, Math.min(1, progress));
+                    
+                    const activeCount = Math.floor(progress * words.length);
+                    
+                    words.forEach((word, index) => {
+                        word.classList.toggle('active', index < activeCount);
+                    });
+                });
+            }, { threshold: CONFIG.THRESHOLD.TEXT_REVEAL });
+
+            const init = () => observer.observe(revealText);
+
+            return { init };
+        })();
+
+        /**
+         * Accordion Module
+         */
+        const Accordion = (() => {
+            const items = document.querySelectorAll('.accordion-item');
+
+            const toggle = (item, header) => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all siblings
+                const siblings = item.parentElement?.querySelectorAll('.accordion-item') || [];
+                siblings.forEach(sibling => {
+                    sibling.classList.remove('active');
+                    const siblingHeader = sibling.querySelector('.accordion-header');
+                    if (siblingHeader) siblingHeader.setAttribute('aria-expanded', 'false');
+                });
+                
+                // Open clicked if wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                }
+            };
+
+            const init = () => {
+                items.forEach(item => {
+                    const header = item.querySelector('.accordion-header');
+                    if (!header) return;
+
+                    header.addEventListener('click', () => toggle(item, header));
+
+                    header.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            toggle(item, header);
+                        }
+                    });
+                });
+            };
+
+            return { init };
+        })();
+
+        /**
+         * Stats Counter Animation Module - DÜZELTİLDİ
+         */
+        const StatsCounter = (() => {
+            const statRows = document.querySelectorAll('.stat-row');
+
+            const animate = (numElement, finalValue, suffix) => {
+                const startTime = performance.now();
+                const duration = CONFIG.ANIMATION.COUNTER_DURATION;
+
+                const step = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out quart easing function
+                    const easeOut = 1 - Math.pow(1 - progress, 4);
+                    
+                    // Calculate current value
+                    let current;
+                    if (finalValue % 1 !== 0) {
+                        // Decimal number (like 99.9)
+                        current = (easeOut * finalValue).toFixed(1);
+                    } else {
+                        // Integer
+                        current = Math.floor(easeOut * finalValue);
+                    }
+                    
+                    // Update DOM
+                    numElement.textContent = current + suffix;
+                    
+                    // Continue animation or finalize
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        // Ensure final value is exact
+                        numElement.textContent = finalValue + suffix;
+                    }
+                };
+
+                requestAnimationFrame(step);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (!entry.isIntersecting) return;
+
+                    // Staggered animation delay
+                    const delay = index * CONFIG.ANIMATION.STAGGER_DELAY;
+                    
+                    setTimeout(() => {
+                        // Add visible class for CSS transition
+                        entry.target.classList.add('visible');
+                        
+                        // Get number element
+                        const numElement = entry.target.querySelector('.stat-number');
+                        if (!numElement) return;
+
+                        // Parse target value and suffix
+                        const finalValue = parseFloat(numElement.dataset.target);
+                        const suffix = numElement.dataset.suffix || '';
+                        
+                        // Start counter animation
+                        animate(numElement, finalValue, suffix);
+                        
+                    }, delay);
+
+                    // Unobserve after triggering
+                    observer.unobserve(entry.target);
+                });
+            }, { 
+                threshold: CONFIG.THRESHOLD.STATS,
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before fully visible
+            });
+
+            const init = () => {
+                statRows.forEach(row => observer.observe(row));
+            };
+
+            return { init };
+        })();
+
+        /**
+         * Parallax Effect Module
+         */
+        const Parallax = (() => {
+            const root = document.documentElement;
+            let ticking = false;
+
+            const update = () => {
+                const section = document.getElementById('statsSection');
+                if (!section) return;
+                
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                if (rect.top >= windowHeight || rect.bottom <= 0) return;
+                
+                const centerOffset = (rect.top + rect.height / 2) - (windowHeight / 2);
+                const offset = centerOffset * 0.05;
+                root.style.setProperty('--parallax-offset', `${offset}px`);
+                
+                ticking = false;
+            };
+
+            const requestTick = () => {
+                if (ticking) return;
+                requestAnimationFrame(update);
+                ticking = true;
+            };
+
+            return { requestTick };
+        })();
+
+        /**
+         * Navbar Scroll Behavior Module
+         */
+        const NavbarScroll = (() => {
+            const navbar = document.querySelector('.navbar');
+            let lastScroll = 0;
+
+            const update = () => {
+                if (window.innerWidth > 768 || !navbar) return;
+                
+                const currentScroll = window.scrollY;
+                
+                if (currentScroll > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            };
+
+            return { update };
+        })();
+
+        /**
+         * Canvas Animation Module
+         */
+        const CanvasAnimation = (() => {
+            const canvas = document.getElementById('dotCanvas');
+            if (!canvas) return null;
+
+            const ctx = canvas.getContext('2d');
+            const section = document.getElementById('statsSection');
+            if (!section) return null;
+
+            let width, height;
+            let particles = [];
+            let animationId = null;
+            let isVisible = true;
+
+            const init = () => {
+                width = section.offsetWidth;
+                height = section.offsetHeight;
+                canvas.width = width;
+                canvas.height = height;
+
+                particles = [];
+                for (let i = 0; i < CONFIG.CANVAS.PARTICLE_COUNT; i++) {
+                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.2 + 0.3,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5
+                    });
+                }
+            };
+
+            const animate = () => {
+                if (!isVisible) return;
+                
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.4)';
+
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0) p.x = width;
+                    if (p.x > width) p.x = 0;
+                    if (p.y < 0) p.y = height;
+                    if (p.y > height) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                animationId = requestAnimationFrame(animate);
+            };
+
+            const handleVisibility = () => {
+                if (document.hidden) {
+                    isVisible = false;
+                    if (animationId) cancelAnimationFrame(animationId);
+                } else {
+                    isVisible = true;
+                    animate();
+                }
+            };
+
+            const resizeObserver = new ResizeObserver(() => {
+                init();
+            });
+
+            const initModule = () => {
+                init();
+                animate();
+                resizeObserver.observe(section);
+                document.addEventListener('visibilitychange', handleVisibility);
+            };
+
+            const destroy = () => {
+                if (animationId) cancelAnimationFrame(animationId);
+                resizeObserver.disconnect();
+                document.removeEventListener('visibilitychange', handleVisibility);
+            };
+
+            return { init: initModule, destroy };
+        })();
+
+        /**
+         * Main Initialization
+         */
+        const App = (() => {
+            const init = () => {
+                // Initialize all modules
+                MobileNav.init();
+                TextReveal?.init();
+                Accordion.init();
+                StatsCounter.init();
+                CanvasAnimation?.init();
+
+                // Scroll event handler with passive listener
+                window.addEventListener('scroll', () => {
+                    if (CONFIG.SCROLL.PROGRESS_UPDATE) ScrollProgress.update();
+                    if (CONFIG.SCROLL.PARALLAX_UPDATE) Parallax.requestTick();
+                    if (CONFIG.SCROLL.NAVBAR_UPDATE) NavbarScroll.update();
+                }, { passive: true });
+            };
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', () => {
+                CanvasAnimation?.destroy();
+            });
+
+            return { init };
+        })();
+
+        // Start the application when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', App.init);
+        } else {
+            App.init();
+        }
+    </script>
+</body>
+</html>
