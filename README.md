@@ -18,6 +18,8 @@ A modern, high-performance portfolio website built with pure HTML, CSS, and Java
 - **Performance Optimized**: Preloaded critical assets, lazy loading, minimal render-blocking
 - **SEO Optimized**: Comprehensive meta tags, Open Graph, Twitter Cards, JSON-LD structured data
 - **Custom Domain Ready**: Configured for `www.ceyhanmolla.com` via CNAME
+- **Dynamic Copyright**: Automatically updates year using JavaScript
+- **Enhanced UX**: Logo link opens in same tab for better navigation flow
 
 ## 🛠️ Tech Stack
 
@@ -148,6 +150,7 @@ Uses modern CSS features with graceful degradation:
 ## 📄 License
 
 All rights reserved. © 2026 Ceyhan Molla.
+*Note: The live website automatically displays the current year in the copyright notice using JavaScript.*
 
 ---
 
