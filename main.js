@@ -440,9 +440,22 @@
             return { init };
         })();
 
+        // Update copyright year
+        const updateCopyrightYear = () => {
+            const yearElement = document.getElementById('copyright-year');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.innerHTML = yearElement.innerHTML.replace(/\d{4}/, currentYear);
+            }
+        };
+
         // Start the application when DOM is ready
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', App.init);
+            document.addEventListener('DOMContentLoaded', () => {
+                updateCopyrightYear();
+                App.init();
+            });
         } else {
+            updateCopyrightYear();
             App.init();
         }
