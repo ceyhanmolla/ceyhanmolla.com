@@ -433,30 +433,6 @@
         })();
 
         /**
-         * Lazy Background Images Module
-         */
-        const LazyBg = (() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    const el = entry.target;
-                    const bg = el.dataset.bg;
-                    if (bg) {
-                        el.style.backgroundImage = `url('${bg}')`;
-                        delete el.dataset.bg;
-                        observer.unobserve(el);
-                    }
-                });
-            }, { rootMargin: '200px 0px' });
-
-            const init = () => {
-                document.querySelectorAll('[data-bg]').forEach(el => observer.observe(el));
-            };
-
-            return { init };
-        })();
-
-        /**
          * Main Initialization
          */
         const App = (() => {
@@ -467,7 +443,6 @@
                 Accordion.init();
                 StatsCounter.init();
                 CanvasAnimation?.init();
-                LazyBg.init();
 
                 // Scroll event handler with passive listener
                 window.addEventListener('scroll', () => {
