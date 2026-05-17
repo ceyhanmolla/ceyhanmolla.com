@@ -1,0 +1,10 @@
+{
+  "name": "ceyhanmolla.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "npx lightningcss --minify style.css -o style.min.css",
+    "build:js": "npx terser main.js -o main.min.js -c passes=2 -m"
+  }
+}

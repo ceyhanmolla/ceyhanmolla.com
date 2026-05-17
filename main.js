@@ -340,8 +340,9 @@
             let particles = [];
             let animationId = null;
             let isVisible = true;
+            let sectionObserver = null;
 
-            const init = () => {
+            const initParticles = () => {
                 width = section.offsetWidth;
                 height = section.offsetHeight;
                 canvas.width = width;
@@ -356,6 +357,20 @@
                         vx: (Math.random() - 0.5) * 0.5,
                         vy: (Math.random() - 0.5) * 0.5
                     });
+                }
+            };
+
+            const start = () => {
+                if (animationId) return;
+                isVisible = true;
+                animate();
+            };
+
+            const stop = () => {
+                isVisible = false;
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
                 }
             };
 
@@ -383,33 +398,62 @@
             };
 
             const handleVisibility = () => {
-                if (document.hidden) {
-                    isVisible = false;
-                    if (animationId) cancelAnimationFrame(animationId);
-                } else {
-                    isVisible = true;
-                    animate();
-                }
+                if (document.hidden) stop();
+                else start();
             };
 
             const resizeObserver = new ResizeObserver(() => {
-                init();
+                initParticles();
             });
 
             const initModule = () => {
-                init();
-                animate();
+                initParticles();
+                
+                // Stop canvas when section is off-screen
+                sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) start();
+                        else stop();
+                    });
+                }, { threshold: 0 });
+                sectionObserver.observe(section);
+
                 resizeObserver.observe(section);
                 document.addEventListener('visibilitychange', handleVisibility);
             };
 
             const destroy = () => {
-                if (animationId) cancelAnimationFrame(animationId);
+                stop();
+                sectionObserver?.disconnect();
                 resizeObserver.disconnect();
                 document.removeEventListener('visibilitychange', handleVisibility);
             };
 
             return { init: initModule, destroy };
+        })();
+
+        /**
+         * Lazy Background Images Module
+         */
+        const LazyBg = (() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const bg = el.dataset.bg;
+                    if (bg) {
+                        el.style.backgroundImage = `url('${bg}')`;
+                        delete el.dataset.bg;
+                        observer.unobserve(el);
+                    }
+                });
+            }, { rootMargin: '200px 0px' });
+
+            const init = () => {
+                document.querySelectorAll('[data-bg]').forEach(el => observer.observe(el));
+            };
+
+            return { init };
         })();
 
         /**
@@ -423,6 +467,7 @@
                 Accordion.init();
                 StatsCounter.init();
                 CanvasAnimation?.init();
+                LazyBg.init();
 
                 // Scroll event handler with passive listener
                 window.addEventListener('scroll', () => {
